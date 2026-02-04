@@ -1,6 +1,6 @@
 # ClickEffect - 鼠标点击特效
 
-![Version](https://img.shields.io/badge/version-0.1.3-blue.svg)
+![Version](https://img.shields.io/badge/version-0.1.2-blue.svg)
 ![License](https://img.shields.io/badge/license-GPL--3.0--only-green.svg)
 ![Author](https://img.shields.io/badge/author-EricQ-red.svg)
 
@@ -67,6 +67,7 @@ const CONFIG = {
 
 
 EricQ (Eric Qiu)
+
 
 
 
