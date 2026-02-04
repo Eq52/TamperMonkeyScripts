@@ -21,7 +21,7 @@
 ## 🚀 安装方法
 
 1. **安装脚本管理器**：
-   如果你还没有安装，请先安装 [Tampermonkey](https://www.tampermonkey.net/) (推荐) 或 [Violentmonkey](https://violentmonkey.github.io/) 浏览器扩展。
+   如果你还没有安装，请先安装[Scriptcat](https://docs.scriptcat.org/) 或 [Tampermonkey](https://www.tampermonkey.net/) (推荐) 或 [Violentmonkey](https://violentmonkey.github.io/) 浏览器扩展。
 
 2. **安装脚本**：
    - 点击 GitHub 仓库中的 `clickEffect.user.js` 文件。
@@ -65,5 +65,6 @@ const CONFIG = {
 本项目采用 [GPL-3.0-only](LICENSE) 许可证开源。
 
 ## 👨‍💻 作者
+
 
 EricQ
