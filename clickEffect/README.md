@@ -6,6 +6,8 @@
 
 一个简单而美观的 Tampermonkey 脚本，为你的每一次鼠标点击添加炫酷的粒子爆炸特效。该脚本适用于所有网页，让浏览体验更加生动有趣。
 
+> 支持我的其他脚本：[GitHub](https://github.com/Eq52/TamperMonkeyScripts/) or [ScriptCat](https://scriptcat.org/zh-CN/users/196629)
+
 ## ✨ 功能特性
 
 - 🎨 **全局特效**：在所有网页上生效（`@match *`）。
@@ -18,7 +20,7 @@
 ## 🚀 安装方法
 
 1. **安装脚本管理器**：
-   如果你还没有安装，请先安装[Scriptcat](https://docs.scriptcat.org/) 或 [Tampermonkey](https://www.tampermonkey.net/) (推荐) 或 [Violentmonkey](https://violentmonkey.github.io/) 浏览器扩展。
+   如果你还没有安装，请先安装[ScriptCat](https://docs.scriptcat.org/) 或 [Tampermonkey](https://www.tampermonkey.net/) (推荐) 或 [Violentmonkey](https://violentmonkey.github.io/) 浏览器扩展。
 
 2. **安装脚本**：
    - 点击 GitHub 仓库中的 `clickEffect.user.js` 文件。
@@ -65,6 +67,7 @@ const CONFIG = {
 
 
 EricQ
+
 
 
 
