@@ -62,10 +62,11 @@ const CONFIG = {
 
 ## 📄 开源协议
 
-本项目采用 [GPL-3.0-only](/Eq52/TamperMonkeyScripts/blob/main/LICENSE) 许可证开源。
+本项目采用 [GPL-3.0-only](/LICENSE) 许可证开源。
 
 ## 👨‍💻 作者
 
 
 EricQ
+
 
