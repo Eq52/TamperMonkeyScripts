@@ -28,15 +28,15 @@
 
    > 点击NX 极速解析按钮即可 ; 目前仅支持BV号
 
-7. SimPlayer 播放器 ✅
-
-   > 视频解析后使用 [SimPlayer](https://github.com/Eq52/Sim-Player) 独立播放器播放，支持画中画、全屏、倍速、截图等功能
-
 
 **更新**
 
+**V 6.0.1**
+*修复视频播放 403 错误：NXVAV API 返回的视频 URL 有 Referer 白名单检测，SimPlayer 的 no-referrer 策略无法通过，恢复使用 otype=dplayer 原生解析*
+*iframe 保留 autoplay、fullscreen、picture-in-picture 权限声明*
+
 **V 6.0.0**
-*集成 SimPlayer 播放器：NX 极速解析改为获取真实视频地址后交由 SimPlayer 播放，支持画中画/全屏/倍速/截图等增强功能*
+*尝试集成 SimPlayer 播放器（因 CDN Referer 限制回退）*
 *iframe 增加 autoplay、fullscreen、picture-in-picture 权限声明*
 
 **V 5.0.3**
