@@ -31,12 +31,8 @@
 
 **更新**
 
-**V 6.0.1**
-*修复视频播放 403 错误：NXVAV API 返回的视频 URL 有 Referer 白名单检测，SimPlayer 的 no-referrer 策略无法通过，恢复使用 otype=dplayer 原生解析*
-*iframe 保留 autoplay、fullscreen、picture-in-picture 权限声明*
-
-**V 6.0.0**
-*尝试集成 SimPlayer 播放器（因 CDN Referer 限制回退）*
+**V 7.0.0**
+*集成 SimPlayer 播放器*
 *iframe 增加 autoplay、fullscreen、picture-in-picture 权限声明*
 
 **V 5.0.3**
