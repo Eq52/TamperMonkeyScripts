@@ -32,14 +32,18 @@
 **更新**
 
 **V 7.0.0**
-*集成 SimPlayer 播放器*
-*iframe 增加 autoplay、fullscreen、picture-in-picture 权限声明*
+
+1. *集成 SimPlayer 播放器*
+
+   > 为解决第三方Dplayer失效导致的极速解析(NX)播放失败的问题 ↑
+
+2. *iframe 增加 autoplay、fullscreen、picture-in-picture 权限声明*
 
 **V 5.0.3**
-*小改动,在设置页增加了备选方案文字*
+1. *小改动,在设置页增加了备选方案文字*
 
 **V5.0.2**
-*小改动，不更新也不影响使用...*
+1. *小改动，不更新也不影响使用...*
 
 
 **注意**
