@@ -14,6 +14,13 @@
 
 ## 版本更新
 
+### V2.0.0
+
+*字典增量 + 优化翻译*
+> 通过学习优秀项目 [github-chinese](https://github.com/maboloshi/github-chinese/) 将逻辑优化并把字典规则增量至将近530条
+- 字典增量
+- 优化翻译逻辑
+
 ### V1.2.0
 
 *优化翻译*
