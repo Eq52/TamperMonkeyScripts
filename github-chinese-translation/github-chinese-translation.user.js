@@ -1,15 +1,12 @@
 // ==UserScript==
 // @name         GitHub 汉化插件
 // @namespace    https://github.com/Eq52/TamperMonkeyScripts/tree/main/github-chinese-translation
-// @version      2.0.0
-// @description  将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 创建仓库 / Compare / 议题 / 设置页 / 代码浏览 / 议题详情 / Markdown 工具栏 / 通用动词 / 页脚）
+// @version      2.1.0
+// @description  将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 创建仓库 / Compare / 议题 / 设置页完整翻译 / 代码浏览 / 议题详情 / Markdown 工具栏 / 通用动词 / 页脚）
 // @icon         https://free.boltp.com/2026/05/19/6a0c02479cd6a.webp
 // @license      GPL-3.0-only
 // @author       Eq52
 // @match        https://github.com/*
-// @grant        GM_registerMenuCommand
-// @grant        GM_getValue
-// @grant        GM_setValue
 // @run-at       document-end
 // ==/UserScript==
 
@@ -362,6 +359,7 @@
                     'Access': '访问',
                     'Code and automation': '代码与自动化',
                     'Security and quality': '安全与质量',
+                    'Advanced Security': '高级安全',
                     'Integrations': '集成',
                 };
                 if (map[text]) { el.textContent = map[text]; return true; }
@@ -382,6 +380,7 @@
                 const map = {
                     'General': '通用',
                     'Collaborators': '协作者',
+                    'Collaborators and teams': '协作者和团队',
                     'Moderation options': '审核选项',
                     'Interaction limits': '互动限制',
                     'Code review limits': '代码审查限制',
@@ -391,6 +390,18 @@
                     'Rulesets': '规则集',
                     'Projects': '项目',
                     'Discussions': '讨论',
+                    'Actions': '操作',
+                    'Runners': '运行器',
+                    'Models': '模型',
+                    'Code review': '代码审查',
+                    'Coding agent': '编程智能体',
+                    'Environments': '环境',
+                    'Pages': 'GitHub Pages',
+                    'Deploy keys': '部署密钥',
+                    'Secrets and variables': '机密和变量',
+                    'Email notifications': '邮件通知',
+                    'Autolink references': '自动链接引用',
+                    'Codespaces': '代码空间',
                     'Copy path': '复制路径',
                     'Copy permalink': '复制永久路径',
                     'Center content': '居中内容',
@@ -760,12 +771,10 @@
         { pattern: 'Upgrade', replacement: '升级' },
         { pattern: 'Profile', replacement: '个人资料' },
         { pattern: 'Members', replacement: '成员' },
-        { pattern: 'conversations', replacement: '对话' },
         { pattern: 'Templates', replacement: '模板' },
         { pattern: 'Files', replacement: '文件' },
         { pattern: 'conversations', replacement: '对话' },
         { pattern: 'Filters', replacement: '筛选' },
-        { pattern: 'New issue', replacement: '创建议题' },
         { pattern: 'Sort', replacement: '排序' },
         { pattern: 'List', replacement: '列表' },
         { pattern: 'Board', replacement: '看板' },
@@ -1026,7 +1035,6 @@
         { pattern: 'Network', replacement: '网络' },
         { pattern: 'Members', replacement: '成员' },
         { pattern: 'Forks', replacement: '复刻' },
-        { pattern: 'Languages', replacement: '语言' },
         { pattern: 'Latest release', replacement: '最新发行版' },
         { pattern: 'Releases', replacement: '发行版' },
         { pattern: 'Tags', replacement: '标签' },
@@ -1053,17 +1061,359 @@
         { pattern: 'Top paths', replacement: '热门路径' },
 
         // ================================================================
-        //  仓库设置页扩展
+        //  仓库设置页 —— 完整翻译（v2.1.0）
         // ================================================================
 
-        { pattern: 'Secrets', replacement: '密钥' },
+        // --- General 页面 ---
+        { pattern: 'Repository settings saved.', replacement: '仓库设置已保存。' },
+        { pattern: 'Check the sidebar for available repository settings.', replacement: '在侧边栏中查看可用的仓库设置。' },
+        { pattern: 'Template repository', replacement: '模板仓库' },
+        { pattern: 'Template repositories let users generate new repositories with the same directory structure and files.', replacement: '模板仓库允许用户生成具有相同目录结构和文件的新仓库。' },
+        // Commits 子标题
+        { pattern: 'Require contributors to sign off on web-based commits', replacement: '要求贡献者在基于 Web 的提交上签署' },
+        { pattern: 'Developer Certificate of Origin (DCO)', replacement: '开发者来源证书（DCO）' },
+        { pattern: 'Allow comments on individual commits', replacement: '允许对单个提交发表评论' },
+        // Default branch
+        { pattern: 'The default branch is considered the "base" branch in your repository.', replacement: '默认分支被认为是仓库中的 "基础" 分支。' },
+        { pattern: 'Switch to another branch', replacement: '切换到另一分支' },
+        { pattern: 'Switch default branch to another branch', replacement: '将默认分支切换到另一分支' },
+        { pattern: 'Switch default branch', replacement: '切换默认分支' },
+        { pattern: 'I understand, update the default branch.', replacement: '我明白了，依然更新默认分支。' },
+        { pattern: 'Changing your default branch can have unintended consequences.', replacement: '更改默认分支可能会产生意想不到的后果。' },
+        // Social preview
+        { pattern: 'Upload an image to customize your repository\'s social media preview.', replacement: '上传图片以自定义仓库的社交媒体预览。' },
+        { pattern: 'Images should be at least 640×320px (1280×640px for best display).', replacement: '图片至少应为 640×320 像素（1280×640 像素以获得最佳显示效果）。' },
+        { pattern: 'Download template', replacement: '下载模板' },
+        { pattern: 'Upload an image…', replacement: '上传图片…' },
+        // Release immutability
+        { pattern: 'Enable release immutability', replacement: '启用发行版不可修改' },
+        // Wiki
+        { pattern: 'Wikis host documentation for your repository.', replacement: 'Wiki 为您的仓库托管文档。' },
+        { pattern: 'Restrict editing to collaborators only', replacement: '仅限协作者进行编辑' },
+        { pattern: 'Restrict editing to users in teams with push access only', replacement: '仅限具有推送访问权限的团队中的成员进行编辑' },
+        // Issues
+        { pattern: 'Issues integrate lightweight task tracking into your repository.', replacement: '议题将轻量级任务跟踪集成到您的仓库中。' },
+        { pattern: 'Get organized with issue templates', replacement: '使用议题模板进行组织' },
+        { pattern: 'Set up templates', replacement: '设置模板' },
+        // Discussions
+        { pattern: 'Discussions is the space for your community to have conversations.', replacement: '讨论是您的社区进行对话、提问和发布答案的地方。' },
+        { pattern: 'Set up discussions', replacement: '建立讨论' },
+        // Pull Requests 配置
+        { pattern: 'Pull requests allow others to suggest changes to your repository.', replacement: '拉取请求允许其他人向您的代码仓库提出更改建议。' },
+        { pattern: 'Pull request permissions', replacement: '拉取请求权限' },
+        { pattern: 'Creation allowed by:', replacement: '允许创建：' },
+        { pattern: 'Anyone can create a pull request', replacement: '任何人都可以创建拉取请求' },
+        { pattern: 'Only collaborators can create PRs', replacement: '仅协作者可以创建拉取请求' },
+        { pattern: 'Allow merge commits', replacement: '允许合并提交' },
+        { pattern: 'Allow squash merging', replacement: '允许压缩合并' },
+        { pattern: 'Allow rebase merging', replacement: '允许变基合并' },
+        { pattern: 'Always suggest updating pull request branches', replacement: '始终建议更新拉取请求分支' },
+        { pattern: 'Allow auto-merge', replacement: '允许自动合并' },
+        { pattern: 'Automatically delete head branches', replacement: '自动删除头部分支' },
+        { pattern: 'Deleted branches will still be able to be restored.', replacement: '删除的分支仍然可以恢复。' },
+        // Sponsorships
+        { pattern: 'Sponsorships', replacement: '赞助' },
+        { pattern: 'Sponsorships help your community know how to financially support this repository.', replacement: '赞助可帮助您的社区了解如何在资金上支持此仓库。' },
+        { pattern: 'Display a "Sponsor" button', replacement: '显示 "赞助" 按钮' },
+
+        // --- Danger Zone 完整翻译 ---
+        { pattern: 'Change repository visibility', replacement: '更改仓库可见性' },
+        { pattern: 'Change visibility', replacement: '更改可见性' },
+        { pattern: 'Change to private', replacement: '更改为私有' },
+        { pattern: 'Change to public', replacement: '更改为公开' },
+        { pattern: 'This repository is currently public.', replacement: '该仓库当前是公开的。' },
+        { pattern: 'This repository is currently private.', replacement: '该仓库当前是私有的。' },
+        { pattern: 'I want to make this repository public', replacement: '我想将此仓库设为公开' },
+        { pattern: 'I want to make this repository private', replacement: '我想将此仓库设为私有' },
+        { pattern: 'I have read and understand these effects', replacement: '我已阅读并理解这些影响' },
+        { pattern: 'Disable branch protection rules', replacement: '禁用分支保护规则' },
+        { pattern: 'Disable branch protection rules enforcement and APIs', replacement: '禁用分支保护规则执行和 API' },
+        { pattern: 'Transfer ownership', replacement: '转让所有权' },
+        { pattern: 'Transfer this repository to another user or to an organization.', replacement: '将此仓库转让给另一位用户或组织。' },
+        { pattern: 'Organization members cannot transfer repositories', replacement: '组织成员没有转让所有权的权限' },
+        { pattern: 'Leave fork network', replacement: '离开复刻网络' },
+        { pattern: 'Unlink this repository from the fork network and make it standalone.', replacement: '将该仓库从复刻网络中解除关联，使其成为独立仓库。' },
+        { pattern: 'Archive this repository', replacement: '存档仓库' },
+        { pattern: 'Mark this repository as archived and read-only.', replacement: '将此仓库标记为已存档和只读。' },
+        { pattern: 'I understand the consequences, archive this repository', replacement: '我明白后果，依然存档该仓库' },
+        { pattern: 'Unarchive this repository', replacement: '解除仓库存档' },
+        { pattern: 'I understand the consequences, unarchive this repository', replacement: '我明白后果，依然解除该仓库存档' },
+        { pattern: 'Delete this repository', replacement: '删除此仓库' },
+        { pattern: 'Once you delete a repository, there is no going back. Please be certain.', replacement: '您一旦删除仓库，将再也无法恢复。请确认。' },
+        { pattern: 'Organization members cannot delete repositories.', replacement: '组织成员没有删除仓库的权限。' },
+        // Transfer 对话框
+        { pattern: 'New owner', replacement: '新所有者' },
+        { pattern: 'Specify an organization or username', replacement: '指定组织或用户名' },
+        { pattern: 'I understand, transfer this repository.', replacement: '我明白了，依然转让该仓库。' },
+        { pattern: 'Warning: This is a potentially destructive action.', replacement: '警告：这是一个潜在的破坏性行为。' },
+        { pattern: 'Transferring may be delayed until the new owner approves the transfer.', replacement: '转让可能会延迟，直到新所有者批准转让。' },
+
+        // --- 访问权限（Collaborators）---
+        { pattern: 'Who has access', replacement: '谁有权访问' },
+        { pattern: 'This repository is public and visible to anyone', replacement: '该仓库是公开的，对任何人都可见' },
+        { pattern: 'Only those with access to this repository can view it.', replacement: '只有拥有该仓库访问权的用户才能查看。' },
+        { pattern: 'Direct access', replacement: '直接访问' },
+        { pattern: 'Base role', replacement: '基本角色' },
+        { pattern: 'Manage access', replacement: '访问管理' },
+        { pattern: 'You haven\'t invited any collaborators yet', replacement: '您尚未邀请任何协作者' },
+        { pattern: 'Add people', replacement: '添加他人' },
+        { pattern: 'Add to repository', replacement: '添加到仓库' },
+        { pattern: 'Change role', replacement: '切换角色' },
+        { pattern: 'Remove Access', replacement: '删除访问权限' },
+        { pattern: 'Filter by member type', replacement: '按成员类型筛选' },
+        { pattern: 'Organization Members', replacement: '组织成员' },
+        { pattern: 'Outside Collaborators', replacement: '外部协作者' },
+        { pattern: 'Pending Invitations', replacement: '待处理邀请' },
+        { pattern: 'Pending Invite', replacement: '待处理邀请' },
+        { pattern: 'Invite expired', replacement: '已过期' },
+        { pattern: 'Confirm you want to remove this invitation', replacement: '确认移除邀请' },
+        { pattern: 'Confirm you want to remove this member', replacement: '确认要删除此成员？' },
+        { pattern: 'Add teams', replacement: '添加团队' },
+        { pattern: 'Search by username, full name, or email', replacement: '搜索用户名、全名或电子邮箱' },
+        { pattern: 'Search by team name', replacement: '按团队名称搜索' },
+
+        // --- 互动限制 ---
+        { pattern: 'Temporary interaction limits', replacement: '临时互动限制' },
+        { pattern: 'Temporarily restrict which external users can interact with your repository.', replacement: '在配置的时间段内，可临时限制哪些外部用户与您的仓库互动。' },
+        { pattern: 'Limit to existing users', replacement: '仅限现有用户' },
+        { pattern: 'Limit to prior contributors', replacement: '仅限于先前的贡献者' },
+        { pattern: 'Limit to repository collaborators', replacement: '仅限仓库协作者' },
+        { pattern: 'Enable interaction limits for:', replacement: '启用交互限制：' },
+        { pattern: 'Repository interaction limit settings saved.', replacement: '仓库交互限制设置已保存。' },
+
+        // --- 代码审查限制 ---
+        { pattern: 'Restrict users who are permitted to approve or request changes on pull requests in this repository.', replacement: '限制允许批准或请求更改该仓库中拉取请求的用户。' },
+        { pattern: 'Limit to users explicitly granted', replacement: '限于明确授予' },
+        { pattern: 'Code review limit settings saved.', replacement: '代码审查限制设置已保存。' },
+
+        // --- 分支保护 ---
+        { pattern: 'Branch protection rules', replacement: '分支保护规则' },
+        { pattern: 'Add rule', replacement: '添加规则' },
+        { pattern: 'Define branch protection rules to disable force pushing, prevent branches from being deleted.', replacement: '定义分支保护规则，以禁止强制推送，防止分支被删除。' },
+        { pattern: 'No branch protection rules defined yet.', replacement: '尚未定义分支保护规则。' },
+        { pattern: 'Add branch ruleset', replacement: '添加分支规则集' },
+        { pattern: 'Add classic branch protection rule', replacement: '添加经典分支保护规则' },
+        { pattern: 'Not enforced', replacement: '未执行' },
+        { pattern: 'Delete this branch protection rule?', replacement: '删除此分支保护规则？' },
+        { pattern: 'This action cannot be undone.', replacement: '此操作无法撤销。' },
+        { pattern: 'Branch protection settings saved.', replacement: '分支保护设置已保存。' },
+        { pattern: 'Branch protection rule created.', replacement: '分支保护规则已创建。' },
+        // 分支保护规则详情
+        { pattern: 'Branch name pattern', replacement: '分支名称模式' },
+        { pattern: 'Protect matching branches', replacement: '保护匹配的分支' },
+        { pattern: 'Require a pull request before merging', replacement: '要求在合并前提交拉取请求' },
+        { pattern: 'Require approvals', replacement: '要求批准审查' },
+        { pattern: 'Required number of approvals before merging:', replacement: '合并前所需的批准审查数量：' },
+        { pattern: 'Dismiss stale pull request approvals when new commits are pushed', replacement: '当新的提交被推送时，撤销陈旧的拉取请求批准审查' },
+        { pattern: 'Require review from Code Owners', replacement: '要求代码所有者进行审查' },
+        { pattern: 'Restrict who can dismiss pull request reviews', replacement: '限制谁可以驳回拉取请求审查' },
+        { pattern: 'Require status checks to pass before merging', replacement: '要求在合并前通过状态检查' },
+        { pattern: 'Require branches to be up to date before merging', replacement: '要求分支在合并前必须是最新的' },
+        { pattern: 'Require conversation resolution before merging', replacement: '要求在合并前解决对话' },
+        { pattern: 'Require signed commits', replacement: '要求带签名的提交' },
+        { pattern: 'Require linear history', replacement: '要求线性历史记录' },
+        { pattern: 'Require merge queue', replacement: '要求合并队列' },
+        { pattern: 'Merge method', replacement: '合并模式' },
+        { pattern: 'Squash and merge', replacement: '压缩合并' },
+        { pattern: 'Rebase and merge', replacement: '变基合并' },
+        { pattern: 'Require deployments to succeed before merging', replacement: '要求部署成功后再合并' },
+        { pattern: 'Lock branch', replacement: '锁定分支' },
+        { pattern: 'Do not allow bypassing the above settings', replacement: '不允许绕过上述设置' },
+        { pattern: 'Restrict who can push to matching branches', replacement: '限制谁可以推送到匹配的分支' },
+        { pattern: 'Allow force pushes', replacement: '允许强制推送' },
+        { pattern: 'Allow deletions', replacement: '允许删除' },
+        { pattern: 'Rules applied to everyone including administrators', replacement: '规则适用于每个人，包括管理员' },
+        { pattern: 'Do not require status checks on creation', replacement: '不要求在创建时进行状态检查' },
+
+        // --- 标签保护 ---
+        { pattern: 'Protected tags', replacement: '受保护的标签' },
+        { pattern: 'Tag name pattern', replacement: '标签名称模式' },
+        { pattern: 'Delete tag protection rule', replacement: '删除标签保护规则' },
+
+        // --- 规则集 ---
+        { pattern: 'New ruleset', replacement: '新建规则集' },
+        { pattern: 'New branch ruleset', replacement: '新建分支规则集' },
+        { pattern: 'New tag ruleset', replacement: '新建标签规则集' },
+        { pattern: 'Import a ruleset', replacement: '导入规则集' },
+        { pattern: 'You haven\'t created any rulesets', replacement: '您尚未创建任何规则集' },
+        { pattern: 'Export ruleset', replacement: '导出规则集' },
+        { pattern: 'Delete ruleset', replacement: '删除规则集' },
+        { pattern: 'Enforcement status', replacement: '执行状态' },
+        { pattern: 'Bypass list', replacement: '旁路列表' },
+        { pattern: 'Add bypass', replacement: '添加旁路' },
+        { pattern: 'Target branches', replacement: '目标分支' },
+        { pattern: 'Branch targeting criteria', replacement: '目标分支规则' },
+        { pattern: 'Include default branch', replacement: '包含默认分支' },
+        { pattern: 'Include all branches', replacement: '包含所有分支' },
+        { pattern: 'Include by pattern', replacement: '包含规则' },
+        { pattern: 'Exclude by pattern', replacement: '排除规则' },
+        { pattern: 'Branch rules', replacement: '分支规则' },
+        { pattern: 'Restrict creations', replacement: '限制创建' },
+        { pattern: 'Restrict updates', replacement: '限制更新' },
+        { pattern: 'Allow fork syncing', replacement: '允许复刻仓库同步' },
+        { pattern: 'Restrict deletions', replacement: '限制删除' },
+        { pattern: 'Block force pushes', replacement: '阻止强制推送' },
+        { pattern: 'Require code scanning results', replacement: '需要代码扫描结果' },
+        { pattern: 'Ruleset created', replacement: '规则集已创建' },
+        { pattern: 'Ruleset updated', replacement: '规则已更新' },
+
+        // --- Actions 设置 ---
+        { pattern: 'Actions permissions', replacement: '操作权限' },
+        { pattern: 'Allow all actions and reusable workflows', replacement: '允许所有操作和可复用的工作流程' },
+        { pattern: 'Disable actions', replacement: '禁用操作' },
+        { pattern: 'The Actions tab is hidden and no workflows can run.', replacement: '"操作" 选项卡将被隐藏，无法运行任何工作流程。' },
+        { pattern: 'Allow actions created by GitHub', replacement: '允许由 GitHub 创建的操作' },
+        { pattern: 'Allow specified actions and reusable workflows', replacement: '允许指定的操作和可复用的工作流程' },
+        { pattern: 'Require actions to be pinned to a full-length commit SHA', replacement: '要求将操作固定到完整的提交 SHA' },
+        { pattern: 'Artifact and log retention', replacement: '产物和日志保留' },
+        { pattern: 'Cache retention', replacement: '缓存保留' },
+        { pattern: 'Run workflows from fork pull requests', replacement: '从复刻拉取请求运行工作流程' },
+        { pattern: 'Require approval for first-time contributors', replacement: '要求对首次贡献者进行批准审查' },
+        { pattern: 'Require approval for all outside collaborators', replacement: '要求对所有外部协作者进行批准审查' },
+        { pattern: 'Workflow permissions', replacement: '工作流程权限' },
+        { pattern: 'Read and write permissions', replacement: '读取和写入权限' },
+        { pattern: 'Read repository contents and packages permissions', replacement: '读取仓库的内容和软件包的权限' },
+        { pattern: 'Allow GitHub Actions to create and approve pull requests', replacement: '允许 GitHub Actions 创建和批准拉取请求' },
+        { pattern: 'Default workflow permissions settings saved.', replacement: '已保存默认工作流程权限设置。' },
+        { pattern: 'New self-hosted runner', replacement: '新建自托管运行器' },
+        { pattern: 'Host your own runners and customize the environment', replacement: '托管您自己的运行器，并定制用于在 GitHub Actions 工作流程中运行作业的环境' },
+        { pattern: 'Self-hosted runners', replacement: '自托管运行器' },
+
+        // --- Codespaces 设置 ---
+        { pattern: 'Prebuild configuration', replacement: '预构建设置' },
+        { pattern: 'Set up prebuild', replacement: '设置预构建' },
+        { pattern: 'Prebuild configurations speed up Codespace creations significantly', replacement: '预构建设置通过预先执行构建开发环境所需的所有任务，大大加快了代码空间的创建' },
+        { pattern: 'Manually trigger', replacement: '手动触发' },
+        { pattern: 'View runs', replacement: '查看运行日志' },
+        { pattern: 'Disable runs', replacement: '暂停运行' },
+        { pattern: 'Enable runs', replacement: '恢复运行' },
+        { pattern: 'Prebuild triggers', replacement: '预构建触发器' },
+        { pattern: 'Every push', replacement: '每次推送' },
+        { pattern: 'Configuration change', replacement: '配置改变时' },
+        { pattern: 'Region availability', replacement: '区域可用性' },
+        { pattern: 'Advanced options', replacement: '高级选项' },
+        { pattern: 'Disable prebuild optimization', replacement: '禁用预构建优化' },
+
+        // --- Pages 设置 ---
+        { pattern: 'Your site is live at', replacement: '您的站点在' },
+        { pattern: 'Visit site', replacement: '访问网站' },
+        { pattern: 'Unpublish site', replacement: '取消站点发布' },
+        { pattern: 'Build and deployment', replacement: '构建和部署' },
+        { pattern: 'Deploy from a branch', replacement: '从分支部署' },
+        { pattern: 'Use a suggested workflow', replacement: '使用建议的工作流程' },
+        { pattern: 'GitHub Pages is currently disabled.', replacement: 'GitHub Pages 目前已被禁用。' },
+        { pattern: 'Custom domain', replacement: '自定义域' },
+        { pattern: 'Enforce HTTPS', replacement: '强制 HTTPS' },
+        { pattern: 'HTTPS provides a layer of encryption', replacement: 'HTTPS 提供了一层加密' },
+        { pattern: 'browse all workflows', replacement: '浏览所有工作流程' },
+
+        // --- 安全（Advanced Security）---
+        { pattern: 'Advanced Security features help keep your repository secure and updated.', replacement: '高级安全功能有助于保护您的仓库安全并保持更新。' },
+        { pattern: 'Private vulnerability reporting', replacement: '私下漏洞报告' },
+        { pattern: 'Dependency graph', replacement: '依赖项关系图' },
+        { pattern: 'Dependabot alerts', replacement: 'Dependabot 警报' },
+        { pattern: 'Dependabot security updates', replacement: 'Dependabot 安全更新' },
+        { pattern: 'Grouped security updates', replacement: '分组安全更新' },
+        { pattern: 'Dependabot version updates', replacement: 'Dependabot 版本更新' },
+        { pattern: 'Code scanning', replacement: '代码扫描' },
+        { pattern: 'Default setup', replacement: '默认设置' },
+        { pattern: 'Copilot Autofix', replacement: 'Copilot 自动修复' },
+        { pattern: 'Protection rules', replacement: '保护规则' },
+        { pattern: 'Push protection', replacement: '推送保护' },
+        { pattern: 'Secret scanning', replacement: '机密扫描' },
+
+        // --- 环境设置 ---
+        { pattern: 'New environment', replacement: '新建环境' },
+        { pattern: 'You can configure environments with protection rules, variables, and secrets.', replacement: '您可以使用保护规则、变量和机密配置环境。' },
+        { pattern: 'There are no environments for this repository', replacement: '此仓库尚无环境' },
+        { pattern: 'Environments are used by your workflows for deployments.', replacement: '您的工作流程使用环境进行部署。' },
+        { pattern: 'Delete environment', replacement: '删除环境' },
+        { pattern: 'Configure environment', replacement: '配置环境' },
+        { pattern: 'Deployment protection rules', replacement: '部署保护规则' },
+        { pattern: 'Required reviewers', replacement: '所需的审查者' },
+        { pattern: 'Prevent self-review', replacement: '防止自我审查' },
+        { pattern: 'Wait timer', replacement: '等待计时器' },
+        { pattern: 'Allow administrators to bypass configured protection rules', replacement: '允许管理员绕过配置的保护规则' },
+        { pattern: 'Deployment branches and tags', replacement: '部署分支和标签' },
+        { pattern: 'No restriction', replacement: '没有限制' },
+        { pattern: 'Protected branches only', replacement: '仅受保护的分支' },
+        { pattern: 'Selected branches and tags', replacement: '选中的分支和标签' },
+        { pattern: 'Environment secrets', replacement: '环境机密' },
+        { pattern: 'Environment variables', replacement: '环境变量' },
+        { pattern: 'Secrets are encrypted environment variables', replacement: '机密是加密的环境变量' },
+        { pattern: 'Variables are used for non-sensitive configuration data', replacement: '变量用于非敏感配置数据' },
+
+        // --- Secrets and Variables ---
+        { pattern: 'Actions secrets and variables', replacement: '操作机密和变量' },
+        { pattern: 'Secrets and variables allow you to manage reusable configuration data', replacement: '机密和变量允许您管理可重复使用的配置数据' },
+        { pattern: 'Anyone with collaborator access to this repository can use these secrets and variables for actions.', replacement: '任何有协作者权限的人都可以使用这些机密和变量进行操作。' },
+        { pattern: 'Repository secrets', replacement: '仓库机密' },
+        { pattern: 'This repository has no secrets.', replacement: '此仓库尚无机密。' },
+        { pattern: 'Organization secrets', replacement: '组织机密' },
+        { pattern: 'New repository secret', replacement: '新建仓库机密' },
+        { pattern: 'Add secret', replacement: '添加机密' },
+        { pattern: 'Update secret', replacement: '更新机密' },
+        { pattern: 'Repository variables', replacement: '仓库变量' },
+        { pattern: 'New repository variable', replacement: '新建仓库变量' },
+        { pattern: 'Add variable', replacement: '添加变量' },
+        { pattern: 'Update variable', replacement: '更新变量' },
+        { pattern: 'Codespaces secrets', replacement: '代码空间机密' },
+        { pattern: 'Dependabot secrets', replacement: 'Dependabot 机密' },
+        { pattern: 'Actions secrets', replacement: '操作机密' },
+        { pattern: 'Actions variables', replacement: '操作变量' },
+        { pattern: 'Secrets', replacement: '机密' },
         { pattern: 'Variables', replacement: '变量' },
-        { pattern: 'Environments', replacement: '环境' },
-        { pattern: 'Webhooks', replacement: '网络钩子' },
-        { pattern: 'Add webhook', replacement: '添加网络钩子' },
+
+        // --- Webhooks ---
+        { pattern: 'Webhooks', replacement: 'Web 钩子' },
+        { pattern: 'Add webhook', replacement: '添加 Web 钩子' },
+        { pattern: 'Webhooks allow external services to be notified when certain events happen.', replacement: 'Web 钩子允许在发生某些事件时通知外部服务。' },
+        { pattern: 'Webhooks Guide', replacement: 'Web 钩子指南' },
+        { pattern: 'Payload URL', replacement: '有效负载 URL' },
+        { pattern: 'Content type', replacement: '内容类型' },
+        { pattern: 'SSL verification', replacement: 'SSL 验证' },
+        { pattern: 'Enable SSL verification', replacement: '启用 SSL 验证' },
+        { pattern: 'Which events would you like to trigger this webhook?', replacement: '您希望哪些事件触发此 Web 钩子？' },
+        { pattern: 'Just the push event.', replacement: '仅推送事件。' },
+        { pattern: 'Send me everything', replacement: '发送给我所有' },
+        { pattern: 'Let me select individual events.', replacement: '让我选择单个事件。' },
+        { pattern: 'Update webhook', replacement: '更新 Web 钩子' },
+        { pattern: 'Delete webhook', replacement: '删除 Web 钩子' },
+        { pattern: 'Recent Deliveries', replacement: '最近交付' },
+        { pattern: 'Redeliver', replacement: '重新交付' },
+        { pattern: 'Request', replacement: '请求' },
+        { pattern: 'Response', replacement: '应答' },
+
+        // --- Deploy Keys ---
+        { pattern: 'Add deploy key', replacement: '添加部署密钥' },
+        { pattern: 'There are no deploy keys for this repository', replacement: '此仓库暂无部署密钥' },
+        { pattern: 'Allow write access', replacement: '允许写访问' },
+        { pattern: 'Deploy keys', replacement: '部署密钥' },
+
+        // --- GitHub Apps ---
         { pattern: 'GitHub Apps', replacement: 'GitHub 应用' },
-        { pattern: 'Hooks', replacement: '钩子' },
-        { pattern: 'Danger Zone', replacement: '危险区域' },
+        { pattern: 'Installed GitHub Apps', replacement: '安装的 GitHub 应用' },
+        { pattern: 'GitHub Apps augment and extend your workflows on GitHub.', replacement: 'GitHub 应用通过商业、开源和自主开发的工具来增强和扩展您在 GitHub 上的工作流程。' },
+        { pattern: 'There aren\'t any GitHub Apps installed on this repository.', replacement: '此仓库上未安装任何 GitHub 应用。' },
+        { pattern: 'Developed by', replacement: '开发者：' },
+
+        // --- Email Notifications ---
+        { pattern: 'Setup email addresses to receive notifications when push events are triggered.', replacement: '设置电子邮箱地址，以便在推送事件被触发时收到通知。' },
+        { pattern: 'Asterisk (*) denotes a required field', replacement: '星号 (*) 表示必填字段' },
+        { pattern: 'Setup notifications', replacement: '设置通知' },
+
+        // --- Autolink References ---
+        { pattern: 'Add autolink reference', replacement: '添加自动链接引用' },
+        { pattern: 'References to GitHub issues, pull requests, and commits are automatically converted into links.', replacement: 'GitHub 议题、拉取请求和提交的引用会自动转换为链接。' },
+        { pattern: 'No custom autolink references have been created yet.', replacement: '尚未创建自定义自动链接引用。' },
+        { pattern: 'Reference prefix', replacement: '引用前缀' },
+        { pattern: 'Target URL', replacement: '目标链接' },
+
+        // --- Copilot ---
+        { pattern: 'Enable automatic code review', replacement: '启用自动代码审查' },
+        { pattern: 'Use custom instructions when reviewing pull requests', replacement: '在审查拉取请求时使用自定义指令' },
+        { pattern: 'Go to repository rules', replacement: '前往仓库规则' },
+        { pattern: 'Go to rulesets', replacement: '前往规则集' },
 
         // ================================================================
         //  用户菜单 / 个人资料
@@ -1092,7 +1442,6 @@
         { pattern: 'Contribution activity', replacement: '贡献动态' },
         { pattern: 'Achievements', replacement: '成就' },
         { pattern: 'Organizations', replacement: '组织' },
-        { pattern: 'Sponsors', replacement: '赞助者' },
         { pattern: 'Starred', replacement: '已加星标' },
 
         // ================================================================
@@ -1168,6 +1517,8 @@
     function normalize(str) {
         return str.replace(/\s+/g, ' ').trim();
     }
+
+    // 已翻译标记（防止重复翻译）
 
     function isTranslated(el) {
         return el.hasAttribute('data-gh-zh');
@@ -1343,50 +1694,11 @@
         }
     }
 
-    // ========== 油猴菜单开关 ==========
-
-    // 读取开关状态（优先 GM API，回退 localStorage）
-    function loadEnabled() {
-        try {
-            const v = GM_getValue('enabled', true);
-            // 类型强制：GM_getValue 在部分环境下可能返回字符串 "false"（truthy）
-            return v !== false && v !== 'false';
-        } catch (e) { /* GM API 不可用时回退 localStorage */ }
-        try { return localStorage.getItem('gh-zh-enabled') !== 'false'; } catch (e) {}
-        return true;
-    }
-
-    // 保存开关状态（GM API + localStorage 双写，确保持久化）
-    function saveEnabled(val) {
-        try { GM_setValue('enabled', val); } catch (e) { /* 静默失败 */ }
-        try { localStorage.setItem('gh-zh-enabled', String(val)); } catch (e) {}
-    }
-
-    let enabled = loadEnabled();
-
-    function registerMenu() {
-        try {
-            if (typeof GM_registerMenuCommand !== 'function') return;
-            GM_registerMenuCommand(
-                enabled ? '✅ 汉化已开启（点击关闭）' : '❌ 汉化已关闭（点击开启）',
-                () => {
-                    enabled = !enabled;
-                    saveEnabled(enabled);
-                    console.log(`[GitHub 汉化] 翻译已${enabled ? '开启' : '关闭'}`);
-                    // 立即生效：重新加载页面
-                    location.reload();
-                },
-            );
-        } catch (e) {
-            console.warn('[GitHub 汉化] 菜单注册失败:', e);
-        }
-    }
 
     // ========== DOM 变化监听 ==========
 
     let pending = false;
     const observer = new MutationObserver(() => {
-        if (!enabled) return;
         if (pending) return;
         pending = true;
         requestAnimationFrame(() => {
@@ -1417,16 +1729,13 @@
 ` +
             `               \\|___|/                               \\|__|\\|_________|
 ` +
-            `%c  GitHub 汉化插件 v2.0.0  |  %d 条翻译规则已加载  |  汉化${enabled ? '已开启' : '已关闭'}`,
+            `%c  GitHub \u6C49\u5316\u63D2\u4EF6 v2.1.0  |  %d \u6761\u7FFB\u8BD1\u89C4\u5219\u5DF2\u52A0\u8F7D`,
             'color: #00ff41',
             'color: #1f883d; font-weight: bold',
             dict.length
         );
-        registerMenu();
-        if (enabled) {
-            translateAll();
-            selfCheck();
-        }
+        translateAll();
+        selfCheck();
 
         observer.observe(document.body, {
             childList: true,
@@ -1435,9 +1744,13 @@
         });
 
         // 监听 GitHub SPA 路由切换
-        document.addEventListener('pjax:end', () => { if (enabled) { translateAll(); selfCheck(); } });
-        document.addEventListener('turbolinks:load', () => { if (enabled) { translateAll(); selfCheck(); } });
-        document.addEventListener('turbo:load', () => { if (enabled) { translateAll(); selfCheck(); } });
+        const onNavigate = () => {
+            translateAll();
+            selfCheck();
+        };
+        document.addEventListener('pjax:end', onNavigate);
+        document.addEventListener('turbolinks:load', onNavigate);
+        document.addEventListener('turbo:load', onNavigate);
     }
 
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
