@@ -2,8 +2,6 @@
 // @name         GitHub 汉化插件
 // @namespace    https://github.com/Eq52/TamperMonkeyScripts/tree/main/github-chinese-translation
 // @version      1.2.0
-// @updateURL    https://raw.githubusercontent.com/Eq52/TamperMonkeyScripts/main/github-chinese-translation/github-chinese-translation.user.js
-// @downloadURL  https://raw.githubusercontent.com/Eq52/TamperMonkeyScripts/main/github-chinese-translation/github-chinese-translation.user.js
 // @description  将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 创建仓库 / Compare / 议题 / 设置页 / 代码浏览 / 页脚）
 // @icon         https://free.boltp.com/2026/05/19/6a0c02479cd6a.webp
 // @license      GPL-3.0-only
@@ -39,9 +37,10 @@
         // ================================================================
 
         // 占位文本 "Type <kbd>/</kbd> to search"（含 kbd 子标签，保留结构）
-        // 选择器说明：qbsearch-input 是 GitHub 搜索自定义元素名（稳定），kbd 是标准 HTML 元素
+        // 选择器说明：GitHub 前端多次改版，搜索按钮不再被 qbsearch-input 包裹。
+        // 用 span:has(> kbd) + 精确文本匹配兜底，极低误判风险。
         {
-            selector: 'qbsearch-input span:has(> kbd)',
+            selector: 'span:has(> kbd)',
             replace(el) {
                 if (!/^Type\s+\/\s+to\s+search$/.test(el.textContent.trim())) return false;
                 el.childNodes.forEach(node => {
@@ -781,12 +780,14 @@
      */
     function selfCheck() {
         const path = location.pathname;
+        const checks = [];
 
-        // 所有页面共用的关键结构
-        const checks = [
-            { name: '搜索组件 (qbsearch-input)', selector: 'qbsearch-input' },
-            { name: '导航标签 (data-content)', selector: 'span[data-content]' },
-        ];
+        // 仓库/组织/个人页面才有的导航标签
+        if (/^\/(?:[^/]+\/[^/]+)?\/?$/.test(path) && !/^(?:$|\/dashboard|\/orgs|\/users|\/settings|\/new|\/notifications|\/explore|\/trending|\/topics|\/collections|\/events|\/sponsors|\/search)/.test(path)) {
+            checks.push(
+                { name: '导航标签 (data-content)', selector: 'span[data-content]' },
+            );
+        }
 
         // 设置页专用检查
         if (/\/settings/.test(path)) {
