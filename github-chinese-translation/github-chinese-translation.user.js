@@ -7,7 +7,9 @@
 // @license      GPL-3.0-only
 // @author       Eq52
 // @match        https://github.com/*
-// @grant        none
+// @grant        GM_registerMenuCommand
+// @grant        GM_getValue
+// @grant        GM_setValue
 // @run-at       document-end
 // ==/UserScript==
 
@@ -832,10 +834,29 @@
         }
     }
 
+    // ========== 油猴菜单开关 ==========
+
+    let enabled = GM_getValue('enabled', true);
+
+    function registerMenu() {
+        if (typeof GM_registerMenuCommand !== 'function') return;
+        GM_registerMenuCommand(
+            enabled ? '✅ 汉化已开启（点击关闭）' : '❌ 汉化已关闭（点击开启）',
+            () => {
+                enabled = !enabled;
+                GM_setValue('enabled', enabled);
+                console.log(`[GitHub 汉化] 翻译已${enabled ? '开启' : '关闭'}`);
+                // 立即生效：重新加载页面
+                location.reload();
+            },
+        );
+    }
+
     // ========== DOM 变化监听 ==========
 
     let pending = false;
     const observer = new MutationObserver(() => {
+        if (!enabled) return;
         if (pending) return;
         pending = true;
         requestAnimationFrame(() => {
@@ -866,13 +887,16 @@
 ` +
             `               \\|___|/                               \\|__|\\|_________|
 ` +
-            `%c  GitHub 汉化插件 v1.2.0  |  %d 条翻译规则已加载  |  DOM 监听已启动`,
+            `%c  GitHub 汉化插件 v1.2.0  |  %d 条翻译规则已加载  |  汉化${enabled ? '已开启' : '已关闭'}`,
             'color: #00ff41',
             'color: #1f883d; font-weight: bold',
             dict.length
         );
-        translateAll();
-        selfCheck();
+        registerMenu();
+        if (enabled) {
+            translateAll();
+            selfCheck();
+        }
 
         observer.observe(document.body, {
             childList: true,
@@ -881,9 +905,9 @@
         });
 
         // 监听 GitHub SPA 路由切换
-        document.addEventListener('pjax:end', () => { translateAll(); selfCheck(); });
-        document.addEventListener('turbolinks:load', () => { translateAll(); selfCheck(); });
-        document.addEventListener('turbo:load', () => { translateAll(); selfCheck(); });
+        document.addEventListener('pjax:end', () => { if (enabled) { translateAll(); selfCheck(); } });
+        document.addEventListener('turbolinks:load', () => { if (enabled) { translateAll(); selfCheck(); } });
+        document.addEventListener('turbo:load', () => { if (enabled) { translateAll(); selfCheck(); } });
     }
 
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
