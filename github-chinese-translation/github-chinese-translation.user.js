@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub 汉化插件
 // @namespace    https://github.com/Eq52/TamperMonkeyScripts/tree/main/github-chinese-translation
-// @version      1.0.0
+// @version      1.0.1
 // @description  将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 创建仓库 / Compare / 议题 / 设置页 / 页脚）
 // @icon         https://free.boltp.com/2026/05/19/6a0c02479cd6a.webp
 // @license      GPL-3.0-only
@@ -341,6 +341,9 @@
         { pattern: 'Tags', replacement: '标签', selector: 'span.ActionListItem-label' },
         { pattern: 'Rules', replacement: '规则', selector: 'span.ActionListItem-label' },
         { pattern: 'Rulesets', replacement: '规则集', selector: 'span.ActionListItem-label' },
+        // 新版 prc- 类名（ActionList.Item.Label）
+        { pattern: 'Projects', replacement: '项目', selector: 'span[data-component="ActionList.Item.Label"]' },
+        { pattern: 'Discussions', replacement: '讨论', selector: 'span[data-component="ActionList.Item.Label"]' },
 
         // ================================================================
         //  设置页 —— 内容区标题（Subhead-heading--large）
@@ -708,7 +711,7 @@
 ` +
             `               \\|___|/                               \\|__|\\|_________|
 ` +
-            `%c  GitHub 汉化插件 v1.0.0  |  %d 条翻译规则已加载  |  DOM 监听已启动`,
+            `%c  GitHub 汉化插件 v1.0.1  |  %d 条翻译规则已加载  |  DOM 监听已启动`,
             'color: #00ff41',
             'color: #1f883d; font-weight: bold',
             dict.length
