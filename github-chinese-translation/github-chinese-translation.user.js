@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         GitHub 汉化插件
 // @namespace    https://github.com/Eq52/TamperMonkeyScripts/tree/main/github-chinese-translation
-// @version      0.5.5
-// @description  将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 页脚）
+// @version      1.0.0
+// @description  将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 创建仓库 / Compare / 议题 / 设置页 / 页脚）
 // @icon         https://free.boltp.com/2026/05/19/6a0c02479cd6a.webp
 // @license      GPL-3.0-only
 // @author       Eq52
@@ -199,7 +199,7 @@
         //  提交更改对话框
         // ================================================================
 
-        { pattern: 'Commit message', replacement: '提交更改' },
+        { pattern: 'Commit message', replacement: '提交说明' },
         { pattern: 'Extended description', replacement: '详细描述' },
         // textarea placeholder
         {
@@ -310,10 +310,51 @@
         { pattern: 'Upload files', replacement: '上传文件' },
 
         // ================================================================
-        //  设置页
+        //  设置页 —— 分区标题（ActionList-sectionDivider-title）
+        // ================================================================
+
+        {
+            selector: 'h2.ActionList-sectionDivider-title',
+            replace(el) {
+                const text = el.textContent.trim();
+                const map = {
+                    'Access': '访问',
+                    'Code and automation': '代码与自动化',
+                    'Security and quality': '安全与质量',
+                    'Integrations': '集成',
+                };
+                if (map[text]) { el.textContent = map[text]; return true; }
+                return false;
+            },
+        },
+
+        // ================================================================
+        //  设置页 —— 侧边栏导航（ActionListItem-label）
         // ================================================================
 
         { pattern: 'General', replacement: '通用', selector: 'span.ActionListItem-label' },
+        { pattern: 'Collaborators', replacement: '协作者', selector: 'span.ActionListItem-label' },
+        { pattern: 'Moderation options', replacement: '审核选项', selector: 'span.ActionListItem-label' },
+        { pattern: 'Interaction limits', replacement: '互动限制', selector: 'span.ActionListItem-label' },
+        { pattern: 'Code review limits', replacement: '代码审查限制', selector: 'span.ActionListItem-label' },
+        { pattern: 'Branches', replacement: '分支', selector: 'span.ActionListItem-label' },
+        { pattern: 'Tags', replacement: '标签', selector: 'span.ActionListItem-label' },
+        { pattern: 'Rules', replacement: '规则', selector: 'span.ActionListItem-label' },
+        { pattern: 'Rulesets', replacement: '规则集', selector: 'span.ActionListItem-label' },
+
+        // ================================================================
+        //  设置页 —— 内容区标题（Subhead-heading--large）
+        // ================================================================
+
+        { pattern: 'Default branch', replacement: '默认分支', selector: 'h2.Subhead-heading--large' },
+        { pattern: 'Social preview', replacement: '社交预览', selector: 'h2.Subhead-heading--large' },
+        { pattern: 'Features', replacement: '功能', selector: 'h2.Subhead-heading--large' },
+        { pattern: 'Pull Requests', replacement: '拉取请求', selector: 'h2.Subhead-heading--large' },
+        { pattern: 'Commits', replacement: '提交', selector: 'h2.Subhead-heading--large' },
+        { pattern: 'Archives', replacement: '归档', selector: 'h2.Subhead-heading--large' },
+        { pattern: 'Pushes', replacement: '推送', selector: 'h2.Subhead-heading--large' },
+        { pattern: 'Issues', replacement: '议题', selector: 'h2.Subhead-heading--large' },
+        { pattern: 'Danger Zone', replacement: '危险区域', selector: 'h2.Subhead-heading--large' },
 
         // ================================================================
         //  页脚
@@ -356,6 +397,161 @@
                 return false;
             },
         },
+
+        // ================================================================
+        //  侧边栏导航（第二层菜单）
+        // ================================================================
+
+        { pattern: 'Show more', replacement: '显示更多' },
+        { pattern: 'All pull requests', replacement: '所有拉取请求' },
+        { pattern: 'All issues', replacement: '所有议题' },
+        { pattern: 'All repositories', replacement: '所有仓库' },
+        { pattern: 'Codespaces', replacement: '代码空间' },
+        { pattern: 'Explore', replacement: '探索' },
+        { pattern: 'Marketplace', replacement: '市场' },
+        // 侧边栏搜索框（属性翻译）
+        {
+            selector: 'input[placeholder="Search for repositories"]',
+            replace(el) {
+                if (el.placeholder === 'Search for repositories') {
+                    el.placeholder = '查找仓库';
+                    if (el.getAttribute('aria-label') === 'Search for repositories') {
+                        el.setAttribute('aria-label', '查找仓库');
+                    }
+                    return true;
+                }
+                return false;
+            },
+        },
+
+        // ================================================================
+        //  Explore 页面
+        // ================================================================
+
+        { pattern: "Here's what we found based on your interests...", replacement: '这些是我们基于您的喜好找到的...' },
+        // "Trending repositories today"（含 span 子标签 "today"，保留结构）
+        {
+            selector: 'a[href="/trending"]',
+            replace(el) {
+                let done = false;
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE && node.textContent.includes('Trending repositories')) {
+                        node.textContent = node.textContent.replace('Trending repositories', '热门仓库');
+                        done = true;
+                    }
+                });
+                return done;
+            },
+        },
+        { pattern: 'Trending developers', replacement: '热门开发者' },
+        { pattern: "That's everything we found for you, for now.", replacement: '暂时就为您找到这些了。' },
+
+        // ================================================================
+        //  创建仓库页面
+        // ================================================================
+
+        { pattern: 'Create a new repository', replacement: '创建一个新仓库' },
+        // 仓库描述 + 导入链接（含子标签 span > a，保留结构）
+        {
+            selector: 'div:has(> span > a[href="/new/import"])',
+            replace(el) {
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE && node.textContent.includes('Repositories contain')) {
+                        node.textContent = '仓库包含项目的文件和版本历史。';
+                    }
+                });
+                const span = el.querySelector('span');
+                if (span) {
+                    span.childNodes.forEach(node => {
+                        if (node.nodeType === Node.TEXT_NODE && node.textContent.includes('Have a project elsewhere')) {
+                            node.textContent = ' 在其他地方已有项目？ ';
+                        }
+                    });
+                    const link = span.querySelector('a');
+                    if (link && link.textContent.trim() === 'Import a repository') {
+                        link.textContent = '导入一个仓库';
+                    }
+                }
+                return true;
+            },
+        },
+        { pattern: 'Required fields are marked with an asterisk (*).', replacement: '标有星号（*）的字段为必填项。' },
+        { pattern: 'General', replacement: '常规', selector: 'h2[class*="timelineItemHeading"]' },
+        // "Owner(required)"（含 sr-only 子标签，只翻译文本节点）
+        {
+            selector: 'span',
+            replace(el) {
+                if (!el.querySelector('.sr-only')) return false;
+                const text = normalize(el.textContent);
+                if (text !== 'Owner(required)') return false;
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === 'Owner') {
+                        node.textContent = '所有者';
+                    }
+                });
+                return true;
+            },
+        },
+        { pattern: 'Repository name', replacement: '仓库名' },
+        { pattern: 'Configuration', replacement: '配置' },
+        { pattern: 'Create repository', replacement: '创建仓库' },
+        { pattern: 'Public', replacement: '公开', selector: 'span[data-component="ActionList.Item.Label"]' },
+        { pattern: 'Anyone on the internet can see this repository. You choose who can commit.', replacement: '互联网上的任何人都可以看到这个仓库。您可以选择谁可以提交。', selector: 'span[data-component="ActionList.Description"]' },
+        { pattern: 'Private', replacement: '私有', selector: 'span[data-component="ActionList.Item.Label"]' },
+        { pattern: 'You choose who can see and commit to this repository.', replacement: '您可以选择谁可以查看和提交到这个仓库。', selector: 'span[data-component="ActionList.Description"]' },
+
+        // ================================================================
+        //  Compare 页面
+        // ================================================================
+
+        { pattern: 'New pull request', replacement: '新建拉取请求' },
+        { pattern: 'Compare changes', replacement: '比较更改', selector: 'h1.Subhead-heading--large' },
+        // 比较页面描述（含 button 子标签 "compare across forks"，保留结构）
+        {
+            selector: 'div.Subhead-description:has(> button.js-toggle-range-editor-cross-repo)',
+            replace(el) {
+                let done = false;
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        if (node.textContent.includes('Compare changes across')) {
+                            node.textContent = node.textContent
+                                .replace('Compare changes across branches, commits, tags, and more below.', '在下面对比不同分支、提交、标签等之间的改动。')
+                                .replace('If you need to, you can also', '如有需要，也可以');
+                            done = true;
+                        }
+                        // 将尾部 "." 替换为 "。"
+                        if (node.textContent.trim() === '.') {
+                            node.textContent = '。';
+                        }
+                    }
+                });
+                if (done) {
+                    const btn = el.querySelector('button.js-toggle-range-editor-cross-repo');
+                    if (btn) btn.textContent = '跨复刻仓库进行对比';
+                }
+                return done;
+            },
+        },
+        { pattern: 'Create pull request', replacement: '创建拉取请求' },
+        { pattern: 'Compare and review just about anything', replacement: '比较并审查几乎任何内容' },
+
+        // ================================================================
+        //  议题 / PR 列表状态筛选
+        // ================================================================
+
+        { pattern: 'Open', replacement: '开启', selector: 'div[class*="SectionFilterLink-module__title"]' },
+        { pattern: 'Closed', replacement: '关闭', selector: 'div[class*="SectionFilterLink-module__title"]' },
+
+        // ================================================================
+        //  议题创建页面
+        // ================================================================
+
+        { pattern: 'Create new issue', replacement: '创建新议题' },
+        { pattern: 'Add a title', replacement: '添加标题' },
+        { pattern: 'Add a description', replacement: '添加描述' },
+        { pattern: 'Write', replacement: '编写', selector: 'button[role="tab"]' },
+        { pattern: 'Create', replacement: '创建', selector: 'span.prc-Button-Label-FWkx3' },
+                { pattern: 'Preview', replacement: '预览', selector: 'button[role="tab"]' },
     ];
 
     // ========== 工具函数 ==========
@@ -512,7 +708,7 @@
 ` +
             `               \\|___|/                               \\|__|\\|_________|
 ` +
-            `%c  GitHub 汉化插件 v0.4.0  |  %d 条翻译规则已加载  |  DOM 监听已启动`,
+            `%c  GitHub 汉化插件 v1.0.0  |  %d 条翻译规则已加载  |  DOM 监听已启动`,
             'color: #00ff41',
             'color: #1f883d; font-weight: bold',
             dict.length
