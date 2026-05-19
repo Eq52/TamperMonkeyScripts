@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         GitHub 汉化插件
 // @namespace    https://github.com/Eq52/TamperMonkeyScripts/tree/main/github-chinese-translation
-// @version      1.0.1
-// @description  将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 创建仓库 / Compare / 议题 / 设置页 / 页脚）
+// @version      1.2.0
+// @updateURL    https://raw.githubusercontent.com/Eq52/TamperMonkeyScripts/main/github-chinese-translation/github-chinese-translation.user.js
+// @downloadURL  https://raw.githubusercontent.com/Eq52/TamperMonkeyScripts/main/github-chinese-translation/github-chinese-translation.user.js
+// @description  将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 创建仓库 / Compare / 议题 / 设置页 / 代码浏览 / 页脚）
 // @icon         https://free.boltp.com/2026/05/19/6a0c02479cd6a.webp
 // @license      GPL-3.0-only
 // @author       Eq52
@@ -25,6 +27,11 @@
     // 2) 自定义替换函数（含子标签 / 需保留内部结构的元素）：
     //    { selector: 'CSS选择器', replace: (el) => { ... return boolean } }
     //
+    // 选择器稳定性说明：
+    //   ✅ 稳定：HTML 标准属性 (placeholder / role / aria-*) / URL 结构 / data-view-component
+    //   ⚠️ 中等：[class*="模块名"] 子串匹配（哈希后缀变化不影响）/ data-content
+    //   ❌ 脆弱：精确哈希类名（如 prc-Button-Label-FWkx3）/ 完整 CSS Modules 类名
+    //
     const dict = [
 
         // ================================================================
@@ -32,8 +39,9 @@
         // ================================================================
 
         // 占位文本 "Type <kbd>/</kbd> to search"（含 kbd 子标签，保留结构）
+        // 选择器说明：qbsearch-input 是 GitHub 搜索自定义元素名（稳定），kbd 是标准 HTML 元素
         {
-            selector: 'span.Search-module__placeholder__p9hbG, span.Search-module__value__TFoak',
+            selector: 'qbsearch-input span:has(> kbd)',
             replace(el) {
                 if (!/^Type\s+\/\s+to\s+search$/.test(el.textContent.trim())) return false;
                 el.childNodes.forEach(node => {
@@ -52,9 +60,9 @@
         { pattern: 'Search in this owner', replacement: '在此账号中搜索' },
         { pattern: 'Search syntax tips', replacement: '搜索语法提示' },
         { pattern: 'Give feedback', replacement: '反馈' },
-        // 搜索弹窗 —— 分组标题（h3.QueryBuilder-sectionTitle）
+        // 搜索弹窗 —— 分组标题
         {
-            selector: 'h3.QueryBuilder-sectionTitle',
+            selector: 'h3[class*="QueryBuilder"]',
             replace(el) {
                 const text = el.textContent.trim();
                 const map = { 'Repositories': '仓库', 'Code': '代码' };
@@ -109,7 +117,7 @@
 
         // 筛选按钮（summary 内含 SVG 图标 + hidden counter span）
         {
-            selector: 'summary.hx_rsm-trigger',
+            selector: 'summary[aria-haspopup="menu"]',
             replace(el) {
                 let done = false;
                 el.childNodes.forEach(node => {
@@ -190,6 +198,10 @@
         },
         { pattern: 'Cancel', replacement: '取消' },
         { pattern: 'Cancel changes', replacement: '取消更改' },
+        // Include in the home page —— 用 id 定位（稳定）
+        { pattern: 'Include in the home page', replacement: '在主页中显示', selector: 'div#hidden_sidebar_options' },
+        // Deployments checkbox label
+        { pattern: 'Deployments', replacement: '部署', selector: 'label' },
         { pattern: 'Save changes', replacement: '保存改动' },
         { pattern: 'Commit changes...', replacement: '提交更改...' },
         // Commit changes（不含省略号）—— 仅匹配 h1/span，跳过含 data-edit-text 的 button
@@ -241,27 +253,29 @@
         {
             selector: 'div.segmentedControl-text[data-text]',
             replace(el) {
-                const map = { 'Edit': '编辑', 'Preview': '预览' };
+                const map = { 'Edit': '编辑', 'Preview': '预览', 'Code': '代码', 'Blame': '追溯' };
                 const text = el.textContent.trim();
                 if (map[text]) { el.textContent = map[text]; el.setAttribute('data-text', map[text]); return true; }
                 return false;
             },
         },
         // Loading preview（含 spinner 子元素 + 尾部文本节点）
+        // 选择器说明：用 Spinner 子串匹配替代 EditorPreview 模块名（两者均为中等风险，
+        // 但 Spinner 概念更通用，且 div:has(> span[class*="Spinner"] svg) 完全不依赖类名哈希）
         {
-            selector: 'div[class*="EditorPreview"]',
+            selector: 'div[class*="EditorPreview"], div:has(> span[class*="Spinner"] svg)',
             replace(el) {
                 let done = false;
                 // 替换尾部文本节点 "Loading preview…" → "加载预览…"
                 el.childNodes.forEach(node => {
-                    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === 'Loading preview…') {
-                        node.textContent = '加载预览…';
+                    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === 'Loading preview\u2026') {
+                        node.textContent = '加载预览\u2026';
                         done = true;
                     }
                 });
                 // 替换内部隐藏 span 的 "Loading" → "加载中"
                 if (done) {
-                    el.querySelectorAll('span[class*="VisuallyHidden"]').forEach(s => {
+                    el.querySelectorAll('span[class*="VisuallyHidden"], span[class*="sr-only"]').forEach(s => {
                         if (s.textContent.trim() === 'Loading') s.textContent = '加载中';
                     });
                 }
@@ -274,7 +288,16 @@
         // ================================================================
 
         { pattern: 'Show Diff', replacement: '显示差异' },
-        { pattern: 'Files', replacement: '文件', selector: 'h2[class*="CodeViewFileTreeLayout"]' },
+        // "Files" 标题 —— 通过 URL 限定代码浏览页（/tree/ 或 /blob/），无需依赖哈希类名
+        {
+            selector: 'h2',
+            replace(el) {
+                if (el.textContent.trim() !== 'Files') return false;
+                if (!/\/(tree|blob)\//.test(location.pathname)) return false;
+                el.textContent = '文件';
+                return true;
+            },
+        },
 
         // ================================================================
         //  个人主页
@@ -314,7 +337,7 @@
         // ================================================================
 
         {
-            selector: 'h2.ActionList-sectionDivider-title',
+            selector: 'h2[class*="sectionDivider"]',
             replace(el) {
                 const text = el.textContent.trim();
                 const map = {
@@ -329,21 +352,37 @@
         },
 
         // ================================================================
-        //  设置页 —— 侧边栏导航（ActionListItem-label）
+        //  设置页 —— 侧边栏导航（兼容新旧两套类名）
         // ================================================================
 
-        { pattern: 'General', replacement: '通用', selector: 'span.ActionListItem-label' },
-        { pattern: 'Collaborators', replacement: '协作者', selector: 'span.ActionListItem-label' },
-        { pattern: 'Moderation options', replacement: '审核选项', selector: 'span.ActionListItem-label' },
-        { pattern: 'Interaction limits', replacement: '互动限制', selector: 'span.ActionListItem-label' },
-        { pattern: 'Code review limits', replacement: '代码审查限制', selector: 'span.ActionListItem-label' },
-        { pattern: 'Branches', replacement: '分支', selector: 'span.ActionListItem-label' },
-        { pattern: 'Tags', replacement: '标签', selector: 'span.ActionListItem-label' },
-        { pattern: 'Rules', replacement: '规则', selector: 'span.ActionListItem-label' },
-        { pattern: 'Rulesets', replacement: '规则集', selector: 'span.ActionListItem-label' },
-        // 新版 prc- 类名（ActionList.Item.Label）
-        { pattern: 'Projects', replacement: '项目', selector: 'span[data-component="ActionList.Item.Label"]' },
-        { pattern: 'Discussions', replacement: '讨论', selector: 'span[data-component="ActionList.Item.Label"]' },
+        // GitHub 正从 ActionListItem-label 迁移到 data-component="ActionList.Item.Label"
+        // 统一用一个自定义函数匹配两者，避免维护两套独立条目
+        {
+            selector: 'span[class*="ActionListItem"], span[data-component="ActionList.Item.Label"]',
+            replace(el) {
+                const text = el.textContent.trim();
+                const map = {
+                    'General': '通用',
+                    'Collaborators': '协作者',
+                    'Moderation options': '审核选项',
+                    'Interaction limits': '互动限制',
+                    'Code review limits': '代码审查限制',
+                    'Branches': '分支',
+                    'Tags': '标签',
+                    'Rules': '规则',
+                    'Rulesets': '规则集',
+                    'Projects': '项目',
+                    'Discussions': '讨论',
+                    'Copy path': '复制路径',
+                    'Copy permalink': '复制永久路径',
+                    'Center content': '居中内容',
+                    'Download': '下载',
+                    'Delete file': '删除文件',
+                };
+                if (map[text]) { el.textContent = map[text]; return true; }
+                return false;
+            },
+        },
 
         // ================================================================
         //  设置页 —— 内容区标题（Subhead-heading--large）
@@ -414,12 +453,12 @@
         { pattern: 'Marketplace', replacement: '市场' },
         // 侧边栏搜索框（属性翻译）
         {
-            selector: 'input[placeholder="Search for repositories"]',
+            selector: 'input[placeholder*="Search for repositories"]',
             replace(el) {
-                if (el.placeholder === 'Search for repositories') {
-                    el.placeholder = '查找仓库';
-                    if (el.getAttribute('aria-label') === 'Search for repositories') {
-                        el.setAttribute('aria-label', '查找仓库');
+                if (el.placeholder.includes('Search for repositories')) {
+                    el.placeholder = el.placeholder.replace('Search for repositories', '查找仓库');
+                    if (el.getAttribute('aria-label') && el.getAttribute('aria-label').includes('Search for repositories')) {
+                        el.setAttribute('aria-label', el.getAttribute('aria-label').replace('Search for repositories', '查找仓库'));
                     }
                     return true;
                 }
@@ -479,12 +518,21 @@
             },
         },
         { pattern: 'Required fields are marked with an asterisk (*).', replacement: '标有星号（*）的字段为必填项。' },
-        { pattern: 'General', replacement: '常规', selector: 'h2[class*="timelineItemHeading"]' },
+        // 创建仓库页 "General" 标题 —— 通过 URL 限定 /new 页面，不依赖哈希类名
+        {
+            selector: 'h2',
+            replace(el) {
+                if (el.textContent.trim() !== 'General') return false;
+                if (!/\/new/.test(location.pathname)) return false;
+                el.textContent = '常规';
+                return true;
+            },
+        },
         // "Owner(required)"（含 sr-only 子标签，只翻译文本节点）
         {
             selector: 'span',
             replace(el) {
-                if (!el.querySelector('.sr-only')) return false;
+                if (!el.querySelector('.sr-only, [class*="VisuallyHidden"]')) return false;
                 const text = normalize(el.textContent);
                 if (text !== 'Owner(required)') return false;
                 el.childNodes.forEach(node => {
@@ -511,7 +559,7 @@
         { pattern: 'Compare changes', replacement: '比较更改', selector: 'h1.Subhead-heading--large' },
         // 比较页面描述（含 button 子标签 "compare across forks"，保留结构）
         {
-            selector: 'div.Subhead-description:has(> button.js-toggle-range-editor-cross-repo)',
+            selector: 'div[class*="Subhead-description"]:has(> button[class*="cross-repo"])',
             replace(el) {
                 let done = false;
                 el.childNodes.forEach(node => {
@@ -529,7 +577,7 @@
                     }
                 });
                 if (done) {
-                    const btn = el.querySelector('button.js-toggle-range-editor-cross-repo');
+                    const btn = el.querySelector('button[class*="cross-repo"]');
                     if (btn) btn.textContent = '跨复刻仓库进行对比';
                 }
                 return done;
@@ -539,11 +587,51 @@
         { pattern: 'Compare and review just about anything', replacement: '比较并审查几乎任何内容' },
 
         // ================================================================
+        //  代码浏览页 —— ActionList.GroupHeading（分组标题）
+        // ================================================================
+
+        {
+            selector: 'span[class*="ActionList.GroupHeading"]',
+            replace(el) {
+                const text = el.textContent.trim();
+                const map = {
+                    'View options': '查看选项',
+                    'Raw file content': '原始文件内容',
+                };
+                if (map[text]) { el.textContent = map[text]; return true; }
+                return false;
+            },
+        },
+
+        // ================================================================
+        //  代码浏览页 —— 危险操作（Delete directory）
+        // ================================================================
+
+        // Delete directory / Delete file — 用 color-fg-danger 限定危险操作
+        { pattern: 'Delete directory', replacement: '删除目录', selector: 'span.color-fg-danger' },
+
+        // ================================================================
+        //  代码浏览页 —— Outline（大纲）
+        // ================================================================
+
+        { pattern: 'Outline', replacement: '大纲', selector: 'h3#outline-id' },
+
+        // ================================================================
         //  议题 / PR 列表状态筛选
         // ================================================================
 
-        { pattern: 'Open', replacement: '开启', selector: 'div[class*="SectionFilterLink-module__title"]' },
-        { pattern: 'Closed', replacement: '关闭', selector: 'div[class*="SectionFilterLink-module__title"]' },
+        // Open / Closed 筛选标签 —— 通过 URL 限定议题/PR 页面 + 列表结构定位
+        // 选择器说明：ul > li > a > div 是筛选导航的标准结构，不依赖哈希类名
+        {
+            selector: 'nav ul li a > div, [class*="FilterLink"] div, div[class*="SectionFilterLink"]',
+            replace(el) {
+                const text = el.textContent.trim();
+                if (text !== 'Open' && text !== 'Closed') return false;
+                if (!/\/(issues|pulls)/.test(location.pathname)) return false;
+                el.textContent = text === 'Open' ? '开启' : '关闭';
+                return true;
+            },
+        },
 
         // ================================================================
         //  议题创建页面
@@ -553,8 +641,18 @@
         { pattern: 'Add a title', replacement: '添加标题' },
         { pattern: 'Add a description', replacement: '添加描述' },
         { pattern: 'Write', replacement: '编写', selector: 'button[role="tab"]' },
-        { pattern: 'Create', replacement: '创建', selector: 'span.prc-Button-Label-FWkx3' },
-                { pattern: 'Preview', replacement: '预览', selector: 'button[role="tab"]' },
+        { pattern: '(separate with spaces)', replacement: '(用空格分隔)', selector: 'span.text-normal.color-fg-muted' },
+        // 议题创建 "Create" 提交按钮 —— 通过 URL 限定议题创建页，不依赖哈希类名
+        {
+            selector: 'span[data-component="text"]',
+            replace(el) {
+                if (el.textContent.trim() !== 'Create') return false;
+                if (!/\/issues\/new/.test(location.pathname)) return false;
+                el.textContent = '创建';
+                return true;
+            },
+        },
+        { pattern: 'Preview', replacement: '预览', selector: 'button[role="tab"]' },
     ];
 
     // ========== 工具函数 ==========
@@ -661,19 +759,75 @@
             }
         }
 
-        // ---------- 第二遍：自定义函数条目 + 带选择器的 HTML 条目 ----------
+        // ---------- 第二遍：自定义函数条目 ----------
         for (const entry of dict) {
-            // 只处理：自定义函数 / 有 html 标记 / 有选择器但未在第一遍被匹配的
-            const isCustomFn = typeof entry.replace === 'function';
-            const isSelectorOnly = entry.selector && !entry.html && !isCustomFn;
-            if (isSelectorOnly) continue; // 纯选择器条目已在第一遍处理
-            if (!isCustomFn && !entry.html) continue;
+            if (typeof entry.replace !== 'function') continue;
 
             const selector = entry.selector || 'span, a, h1, h2, h3, h4, h5, h6, p, div, button, li, label, summary';
             const candidates = document.querySelectorAll(selector);
             for (const el of candidates) {
                 if (!isTranslated(el)) tryTranslate(el, entry);
             }
+        }
+    }
+
+    // ========== 自检机制 ==========
+
+    /**
+     * 检测关键选择器是否仍然有效。
+     * GitHub 前端更新后，如果某个关键结构元素找不到，
+     * 对应页面的翻译会静默失效。此函数在控制台输出警告，
+     * 帮助用户快速定位问题。
+     */
+    function selfCheck() {
+        const path = location.pathname;
+
+        // 所有页面共用的关键结构
+        const checks = [
+            { name: '搜索组件 (qbsearch-input)', selector: 'qbsearch-input' },
+            { name: '导航标签 (data-content)', selector: 'span[data-content]' },
+        ];
+
+        // 设置页专用检查
+        if (/\/settings/.test(path)) {
+            checks.push(
+                { name: '设置页分区标题 (sectionDivider)', selector: 'h2[class*="sectionDivider"]' },
+                { name: '设置页侧边栏 (ActionListItem)', selector: 'span[class*="ActionListItem"], span[data-component="ActionList.Item.Label"]' },
+                { name: '设置页内容标题 (Subhead-heading--large)', selector: 'h2.Subhead-heading--large' },
+            );
+        }
+
+        // 议题/PR 页专用检查
+        if (/\/(issues|pulls)/.test(path)) {
+            checks.push(
+                { name: '议题/PR 筛选器', selector: 'nav ul li a > div, [class*="FilterLink"] div, div[class*="SectionFilterLink"]' },
+            );
+        }
+
+        // 代码浏览页专用检查
+        if (/\/(tree|blob)\//.test(path)) {
+            checks.push(
+                { name: '代码浏览页 h2', selector: 'h2' },
+            );
+        }
+
+        const failed = [];
+        for (const { name, selector } of checks) {
+            try {
+                if (!document.querySelector(selector)) {
+                    failed.push(name);
+                }
+            } catch (e) {
+                failed.push(name + ' (选择器语法错误)');
+            }
+        }
+
+        if (failed.length > 0) {
+            console.warn(
+                `%c[GitHub 汉化] ⚠️ 以下关键选择器未匹配到元素，GitHub 前端可能已更新：\n` +
+                failed.map(f => `  - ${f}`).join('\n'),
+                'color: #d29922; font-weight: bold',
+            );
         }
     }
 
@@ -711,12 +865,13 @@
 ` +
             `               \\|___|/                               \\|__|\\|_________|
 ` +
-            `%c  GitHub 汉化插件 v1.0.1  |  %d 条翻译规则已加载  |  DOM 监听已启动`,
+            `%c  GitHub 汉化插件 v1.2.0  |  %d 条翻译规则已加载  |  DOM 监听已启动`,
             'color: #00ff41',
             'color: #1f883d; font-weight: bold',
             dict.length
         );
         translateAll();
+        selfCheck();
 
         observer.observe(document.body, {
             childList: true,
@@ -725,9 +880,9 @@
         });
 
         // 监听 GitHub SPA 路由切换
-        document.addEventListener('pjax:end', translateAll);
-        document.addEventListener('turbolinks:load', translateAll);
-        document.addEventListener('turbo:load', translateAll);
+        document.addEventListener('pjax:end', () => { translateAll(); selfCheck(); });
+        document.addEventListener('turbolinks:load', () => { translateAll(); selfCheck(); });
+        document.addEventListener('turbo:load', () => { translateAll(); selfCheck(); });
     }
 
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
