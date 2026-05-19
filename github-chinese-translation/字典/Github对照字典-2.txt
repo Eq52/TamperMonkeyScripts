@@ -1,0 +1,232 @@
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div[2]/div/div/div/div/div[2]/div[2]/a/span/span
+
+<span data-component="text" class="prc-Button-Label-FWkx3">Cancel changes</span>
+
+<span data-component="text" class="prc-Button-Label-FWkx3">取消更改</span>
+
+
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div[2]/div/div/div/div/div[2]/div[2]/button/span/span
+
+<span data-component="text" class="prc-Button-Label-FWkx3">Commit changes...</span>
+
+<span data-component="text" class="prc-Button-Label-FWkx3">提交更改...</span>
+
+
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div[2]/div/div/div/div/div[3]/div/div[1]/div/ul/li[1]/button/span/div
+
+<div class="prc-SegmentedControl-Text-7S2y2 segmentedControl-text" data-text="Edit">Edit</div>
+
+<div class="prc-SegmentedControl-Text-7S2y2 segmentedControl-text" data-text="Edit">编辑</div>
+
+
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div[2]/div/div/div/div/div[3]/div/div[1]/div/ul/li[2]/button/span/div
+
+<div class="prc-SegmentedControl-Text-7S2y2 segmentedControl-text" data-text="Preview">Preview</div>
+
+<div class="prc-SegmentedControl-Text-7S2y2 segmentedControl-text" data-text="Preview">预览</div>
+
+
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div[2]/div/div/div/div/div[3]/div/div[3]/div[2]
+
+<div class="EditorPreview-module__Box_2__VwdwP"><span class="prc-Spinner-Box-Y-ke-"><svg height="32px" width="32px" viewBox="0 0 16 16" fill="none" aria-hidden="true" aria-labelledby="_r_3k_" class="prc-Spinner-SpinnerAnimation-tutJZ" style="animation-delay: -264ms;"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke"></circle><path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg><span class="prc-VisuallyHidden-VisuallyHidden-Q0qSB" id="_r_3k_">Loading</span></span>Loading preview…</div>
+
+<div class="EditorPreview-module__Box_2__VwdwP"><span class="prc-Spinner-Box-Y-ke-"><svg height="32px" width="32px" viewBox="0 0 16 16" fill="none" aria-hidden="true" aria-labelledby="_r_3k_" class="prc-Spinner-SpinnerAnimation-tutJZ" style="animation-delay: -264ms;"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke"></circle><path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg><span class="prc-VisuallyHidden-VisuallyHidden-Q0qSB" id="_r_3k_">Loading</span></span>加载预览…</div>
+
+
+//*[@id="_r_3b_-label"]
+
+<label for="_r_3b_" id="_r_3b_-label" class="BlobEditHeader-module__FormControl_Label__q8il4 prc-components-Label-2mrqP">Show Diff</label>
+
+<label for="_r_3b_" id="_r_3b_-label" class="BlobEditHeader-module__FormControl_Label__q8il4 prc-components-Label-2mrqP">显示差异</label>
+
+
+/html/body/div[1]/div[1]/div/div/div/div[1]/div[1]/h2[2]
+
+<h2 class="CodeViewFileTreeLayout-module__heading__A1Iqk">Files</h2>
+
+<h2 class="CodeViewFileTreeLayout-module__heading__A1Iqk">文件</h2>
+
+
+/html/body/div[1]/div[1]/div/div/div/div[2]/span/input
+
+<input aria-label="Go to file" role="combobox" aria-controls="file-results-list" aria-expanded="false" aria-haspopup="dialog" autocorrect="off" spellcheck="false" placeholder="Go to file" aria-describedby="_r_51_ _r_52_" data-component="input" class="prc-components-Input-IwWrt" type="text" value="">
+
+<input aria-label="Go to file" role="combobox" aria-controls="file-results-list" aria-expanded="false" aria-haspopup="dialog" autocorrect="off" spellcheck="false" placeholder="转到文件" aria-describedby="_r_51_ _r_52_" data-component="input" class="prc-components-Input-IwWrt" type="text" value="">
+
+
+/html/body/div[1]/div[2]/react-partial[2]/div/header/nav/ul/li[8]/a/span[2]
+
+<span data-component="text" data-content="Security and quality">Security and quality</span>
+
+<span data-component="text" data-content="Security and quality">安全和质量</span>
+
+
+/html/body/div/div[2]/react-partial[2]/div/header/nav/ul/li[4]/a/span[2]
+
+<span data-component="text" data-content="Agents">Agents</span>
+
+<span data-component="text" data-content="Agents">代理</span>
+
+
+/html/body/div/div[2]/react-partial[2]/div/header/nav/ul/li[5]/a/span[2]
+
+<span data-component="text" data-content="Actions">Actions</span>
+
+<span data-component="text" data-content="Actions">操作</span>
+
+
+/html/body/div/div[2]/react-partial[2]/div/header/nav/ul/li[9]/a/span[2]
+
+<span data-component="text" data-content="Insights">Insights</span>
+
+<span data-component="text" data-content="Insights">洞察</span>
+
+
+/html/body/div/div[2]/react-partial[2]/div/header/nav/ul/li[10]/a/span[2]
+
+<span data-component="text" data-content="Settings">Settings</span>
+
+<span data-component="text" data-content="Settings">设置</span>
+
+
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/div/div/div[1]/div/nav/nav-list/ul/li[1]/a/span[2]
+
+<span data-view-component="true" class="ActionListItem-label">
+          General
+</span>
+
+<span data-view-component="true" class="ActionListItem-label">
+          通用
+</span>
+
+
+/html/body/div[1]/div[2]/react-partial[2]/div/header/nav/ul/li[5]/a/span[2]
+
+<span data-component="text" data-content="Discussions">Discussions</span>
+
+<span data-component="text" data-content="Discussions">讨论</span>
+
+
+/html/body/div[1]/div[6]/main/div/div/div[1]/div/div/div[4]/h2/a
+
+<a href="/User?tab=achievements" class="Link--primary mb-2">Achievements</a>
+
+<a href="/User?tab=achievements" class="Link--primary mb-2">成就</a>
+
+
+/html/body/div[1]/div[6]/main/div/div/div[2]/turbo-frame/div/div[2]/div/h2
+
+<h2 class="f4 mb-2 text-normal">
+      Pinned
+    <span data-view-component="true">
+  <svg style="box-sizing: content-box; color: var(--color-icon-primary);" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" data-view-component="true" class="spinner pinned-items-spinner js-pinned-items-spinner v-align-text-bottom ml-1 tmp-ml-1 anim-rotate">
+    <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></circle>
+    <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+</svg>    <span class="sr-only">Loading</span>
+</span>
+    <span class="ml-2 color-fg-muted f6 js-pinned-items-reorder-message" role="status" aria-live="polite" data-error-text="Something went wrong." data-success-text="Order updated."></span>
+  </h2>
+  
+  <h2 class="f4 mb-2 text-normal">
+      置顶
+    <span data-view-component="true">
+  <svg style="box-sizing: content-box; color: var(--color-icon-primary);" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" data-view-component="true" class="spinner pinned-items-spinner js-pinned-items-spinner v-align-text-bottom ml-1 tmp-ml-1 anim-rotate">
+    <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></circle>
+    <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+</svg>    <span class="sr-only">Loading</span>
+</span>
+    <span class="ml-2 color-fg-muted f6 js-pinned-items-reorder-message" role="status" aria-live="polite" data-error-text="Something went wrong." data-success-text="Order updated."></span>
+  </h2>
+  
+  
+/html/body/div[1]/div[6]/main/div/div/div[2]/turbo-frame/div/div[2]/div/div/button/span/span
+
+<span class="Button-label">Customize your pins</span>
+
+<span class="Button-label">自定义你的置顶项</span>
+
+
+/html/body/div[1]/div[6]/main/div/div/div[2]/turbo-frame/div/div[3]/div/div[1]/div[1]/div/action-menu/focus-group/button/span/span[1]
+
+<span class="Button-label">Contribution settings</span>
+
+<span class="Button-label">贡献设置</span>
+
+
+//*[@id="_r_19_--label"]
+
+<span id="_r_19_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">New issue</span>
+
+<span id="_r_19_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">新建议题</span>
+
+
+//*[@id="_r_1a_--label"]
+
+<span id="_r_1a_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">New repository</span>
+
+<span id="_r_1a_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">新建仓库</span>
+
+
+//*[@id="_r_1b_--label"]
+
+<span id="_r_1b_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">Import repository</span>
+
+<span id="_r_1b_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">导入仓库</span>
+
+
+//*[@id="_r_82_"]
+
+<h1 class="prc-Dialog-Title-M-iPn" id="_r_82_">Commit changes</h1>
+
+<h1 class="prc-Dialog-Title-M-iPn" id="_r_82_">提交更改</h1>
+
+
+/html/body/div[1]/div[1]/div/div/div/div[2]/div/form/div[1]/label/span
+
+<span>Commit message</span>
+
+<span>提交说明</span>
+
+
+//*[@id="_r_8c_-label"]
+
+<label for="_r_8c_" id="_r_8c_-label" class="prc-components-Label-2mrqP">Extended description</label>
+
+<label for="_r_8c_" id="_r_8c_-label" class="prc-components-Label-2mrqP">详细描述</label>
+
+
+//*[@id="commit-description-input"]
+
+<textarea data-resize="both" aria-invalid="false" rows="7" cols="30" class="prc-Textarea-TextArea-snlco" placeholder="Add an optional extended description..." id="commit-description-input"></textarea>
+
+<textarea data-resize="both" aria-invalid="false" rows="7" cols="30" class="prc-Textarea-TextArea-snlco" placeholder="添加详细描述(可选)..." id="commit-description-input"></textarea>
+
+
+/html/body/div[1]/div[1]/div/div/div/div[3]/button[2]/span/span
+
+<span data-component="text" class="prc-Button-Label-FWkx3">Commit changes</span>
+
+<span data-component="text" class="prc-Button-Label-FWkx3">提交更改</span>
+
+
+//*[@id="_r_1v_--label"]
+
+<span id="_r_1v_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">Create new file</span>
+
+<span id="_r_1v_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">创建新文件</span>
+
+
+//*[@id="_r_20_--label"]
+
+<span id="_r_20_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">Upload files</span>
+
+<span id="_r_20_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">上传文件</span>
+
+
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/form/button
+
+<button data-edit-text="Commit changes" data-pull-text="Propose changes" type="submit" data-view-component="true" class="js-blob-submit btn-primary btn">    Commit changes
+</button>
+
+<button data-edit-text="Commit changes" data-pull-text="Propose changes" type="submit" data-view-component="true" class="js-blob-submit btn-primary btn">    提交更改
+</button>

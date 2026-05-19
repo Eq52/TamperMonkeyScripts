@@ -1,0 +1,196 @@
+# 设置页翻译 (github.com/User/Repo/settings)
+
+
+//*[@id="heading-title-6328f4e4-ef47-4137-8ae2-ddb90fc66f96"]
+
+<h2 id="heading-title-6328f4e4-ef47-4137-8ae2-ddb90fc66f96" data-view-component="true" class="ActionList-sectionDivider-title">
+    Access
+</h2>
+
+<h2 id="heading-title-6328f4e4-ef47-4137-8ae2-ddb90fc66f96" data-view-component="true" class="ActionList-sectionDivider-title">
+    访问
+</h2>
+
+
+//*[@id="heading-title-74b87462-4427-4848-8a15-af0e91f66aeb"]
+
+<h2 id="heading-title-74b87462-4427-4848-8a15-af0e91f66aeb" data-view-component="true" class="ActionList-sectionDivider-title">
+    Code and automation
+</h2>
+
+<h2 id="heading-title-74b87462-4427-4848-8a15-af0e91f66aeb" data-view-component="true" class="ActionList-sectionDivider-title">
+    代码与自动化
+</h2>
+
+
+//*[@id="heading-title-8ea678a9-ee0b-431e-9326-ade13213e043"]
+
+<h2 id="heading-title-8ea678a9-ee0b-431e-9326-ade13213e043" data-view-component="true" class="ActionList-sectionDivider-title">
+    Security and quality
+</h2>
+
+<h2 id="heading-title-8ea678a9-ee0b-431e-9326-ade13213e043" data-view-component="true" class="ActionList-sectionDivider-title">
+    安全与质量
+</h2>
+
+
+//*[@id="heading-title-932667c3-1a22-4f12-8b4c-7a6dbdc8d883"]
+
+<h2 id="heading-title-932667c3-1a22-4f12-8b4c-7a6dbdc8d883" data-view-component="true" class="ActionList-sectionDivider-title">
+    Integrations
+</h2>
+
+<h2 id="heading-title-932667c3-1a22-4f12-8b4c-7a6dbdc8d883" data-view-component="true" class="ActionList-sectionDivider-title">
+    集成
+</h2>
+
+
+/html/body/div[1]/div[6]/main/turbo-frame/div/div/div[1]/div/nav/nav-list/ul/li[3]/nav-list-group/action-list/div/ul/li[1]/a/span[2]
+
+<span data-view-component="true" class="ActionListItem-label">
+          Collaborators
+</span>
+
+<span data-view-component="true" class="ActionListItem-label">
+          协作者
+</span>
+
+
+/html/body/div[1]/div[6]/main/turbo-frame/div/div/div[1]/div/nav/nav-list/ul/li[3]/nav-list-group/action-list/div/ul/li[2]/button/span[2]
+
+<span data-view-component="true" class="ActionListItem-label">
+          Moderation options
+</span>
+
+<span data-view-component="true" class="ActionListItem-label">
+          审核选项
+</span>
+
+
+/html/body/div[1]/div[6]/main/turbo-frame/div/div/div[1]/div/nav/nav-list/ul/li[3]/nav-list-group/action-list/div/ul/li[2]/ul/li[1]/a/span
+
+<span data-view-component="true" class="ActionListItem-label">
+          Interaction limits
+</span>
+
+<span data-view-component="true" class="ActionListItem-label">
+          互动限制
+</span>
+
+
+/html/body/div[1]/div[6]/main/turbo-frame/div/div/div[1]/div/nav/nav-list/ul/li[3]/nav-list-group/action-list/div/ul/li[2]/ul/li[2]/a/span
+
+<span data-view-component="true" class="ActionListItem-label">
+          Code review limits
+</span>
+
+<span data-view-component="true" class="ActionListItem-label">
+          代码审查限制
+</span>
+
+
+/html/body/div[1]/div[6]/main/turbo-frame/div/div/div[1]/div/nav/nav-list/ul/li[5]/nav-list-group/action-list/div/ul/li[1]/a/span[2]
+
+<span data-view-component="true" class="ActionListItem-label">
+          Branches
+</span>
+
+<span data-view-component="true" class="ActionListItem-label">
+          分支
+</span>
+
+
+/html/body/div[1]/div[6]/main/turbo-frame/div/div/div[1]/div/nav/nav-list/ul/li[5]/nav-list-group/action-list/div/ul/li[2]/a/span[2]
+
+<span data-view-component="true" class="ActionListItem-label">
+          Tags
+</span>
+
+<span data-view-component="true" class="ActionListItem-label">
+          标签
+</span>
+
+
+/html/body/div[1]/div[6]/main/turbo-frame/div/div/div[1]/div/nav/nav-list/ul/li[5]/nav-list-group/action-list/div/ul/li[3]/button/span[2]
+
+<span data-view-component="true" class="ActionListItem-label">
+          Rules
+</span>
+
+<span data-view-component="true" class="ActionListItem-label">
+          规则
+</span>
+
+
+/html/body/div[1]/div[6]/main/turbo-frame/div/div/div[1]/div/nav/nav-list/ul/li[5]/nav-list-group/action-list/div/ul/li[3]/ul/li/a/span
+
+<span data-view-component="true" class="ActionListItem-label">
+          Rulesets
+</span>
+
+<span data-view-component="true" class="ActionListItem-label">
+          规则集
+</span>
+
+
+/html/body/div[1]/div[6]/main/turbo-frame/div/div/div[2]/div/div/div/dl/dt/div/h2
+
+<h2 data-view-component="true" class="Subhead-heading Subhead-heading--large">Default branch</h2>
+
+<h2 data-view-component="true" class="Subhead-heading Subhead-heading--large">默认分支</h2>
+
+
+/html/body/div[1]/div[6]/main/turbo-frame/div/div/div[2]/div/div/div/form[4]/file-attachment/div/div[1]/h2
+
+<h2 data-view-component="true" class="Subhead-heading Subhead-heading--large">Social preview</h2>
+
+<h2 data-view-component="true" class="Subhead-heading Subhead-heading--large">社交预览</h2>
+
+
+//*[@id="features"]
+
+<h2 id="features" data-view-component="true" class="Subhead-heading Subhead-heading--large">Features</h2>
+
+<h2 id="features" data-view-component="true" class="Subhead-heading Subhead-heading--large">功能</h2>
+
+
+//*[@id="merge-button-settings"]
+
+<h2 id="merge-button-settings" data-view-component="true" class="Subhead-heading Subhead-heading--large">Pull Requests</h2>
+
+<h2 id="merge-button-settings" data-view-component="true" class="Subhead-heading Subhead-heading--large">拉取请求</h2>
+
+
+//*[@id="commit-settings"]
+
+<h2 id="commit-settings" data-view-component="true" class="Subhead-heading Subhead-heading--large">Commits</h2>
+
+<h2 id="commit-settings" data-view-component="true" class="Subhead-heading Subhead-heading--large">提交</h2>
+
+
+//*[@id="archive-settings"]
+
+<h2 id="archive-settings" data-view-component="true" class="Subhead-heading Subhead-heading--large">Archives</h2>
+
+<h2 id="archive-settings" data-view-component="true" class="Subhead-heading Subhead-heading--large">归档</h2>
+
+
+//*[@id="push-settings"]
+
+<h2 id="push-settings" data-view-component="true" class="Subhead-heading Subhead-heading--large">Pushes</h2>
+
+<h2 id="push-settings" data-view-component="true" class="Subhead-heading Subhead-heading--large">推送</h2>
+
+
+//*[@id="issue-settings"]
+
+<h2 id="issue-settings" data-view-component="true" class="Subhead-heading Subhead-heading--large">Issues</h2>
+
+<h2 id="issue-settings" data-view-component="true" class="Subhead-heading Subhead-heading--large">议题</h2>
+
+
+//*[@id="danger-zone"]
+
+<h2 id="danger-zone" data-view-component="true" class="Subhead-heading Subhead-heading--large">Danger Zone</h2>
+
+<h2 id="danger-zone" data-view-component="true" class="Subhead-heading Subhead-heading--large">危险区域</h2>

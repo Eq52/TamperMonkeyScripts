@@ -1,0 +1,350 @@
+XPATH:
+/html/body/div[1]/div[1]/div/div/div/div[2]/div/nav/ul/li[6]/ul/li[7]/button/span[2]/span/span
+
+HTML:
+<span class="color-fg-muted f6">Show more</span>
+
+翻译:
+<span class="color-fg-muted f6">显示更多</span>
+
+XPATH:
+/html/body/div[1]/div[1]/div/div/div/div[2]/div/nav/ul/li[2]/ul/li[3]/a/span[3]
+
+HTML:
+<span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer"><span id="_r_3d_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">All pull requests</span></span>
+
+翻译:
+<span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer"><span id="_r_3d_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">所有拉取请求</span></span>
+
+XPATH:
+/html/body/div[1]/div[1]/div/div/div/div[2]/div/nav/ul/li[2]/ul/li[2]/a/span[3]
+
+HTML:
+<span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer"><span id="_r_3c_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">All issues</span></span>
+
+翻译:
+<span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer"><span id="_r_3c_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">所有议题</span></span>
+
+XPATH:
+/html/body/div[1]/div[1]/div/div/div/div[2]/div/nav/ul/li[2]/ul/li[4]/a/span[3]
+
+HTML:
+<span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer"><span id="_r_49_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">All repositories</span></span>
+
+翻译:
+<span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer"><span id="_r_49_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">所有仓库</span></span>
+
+XPATH:
+/html/body/div[1]/div[1]/div/div/div/div[2]/div/nav/ul/li[2]/ul/li[5]/a/span[3]
+
+HTML:
+<span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer"><span id="_r_4a_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">Projects</span></span>
+
+翻译:
+<span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer"><span id="_r_4a_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">项目</span></span>
+
+XPATH:
+/html/body/div[1]/div[1]/div/div/div/div[2]/div/nav/ul/li[2]/ul/li[6]/a/span[3]
+
+HTML:
+<span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer"><span id="_r_4b_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">Discussions</span></span>
+
+翻译:
+<span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer"><span id="_r_4b_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">讨论</span></span>
+
+XPATH:
+//*[@id="_r_4c_--label"]
+
+HTML:
+<span id="_r_4c_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">Codespaces</span>
+
+翻译:
+<span id="_r_4c_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">代码空间</span>
+
+XPATH:
+//*[@id="_r_4f_--label"]
+
+HTML:
+<span id="_r_4f_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">Explore</span>
+
+翻译:
+<span id="_r_4f_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">探索</span>
+
+XPATH:
+//*[@id="_r_1t_--label"]
+
+HTML:
+<span id="_r_1t_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">Marketplace</span>
+
+翻译:
+<span id="_r_1t_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">市场</span>
+
+XPATH:
+/html/body/div[1]/div[1]/div/div/div/div[2]/div/nav/ul/li[6]/ul/li[2]/div/span/input
+
+HTML:
+<input aria-label="Search for repositories" placeholder="Search for repositories" data-testid="dynamic-side-panel-items-search-input" aria-describedby="_r_2a_" data-component="input" class="prc-components-Input-IwWrt" type="text" value="">
+
+翻译:
+<input aria-label="Search for repositories" placeholder="查找仓库" data-testid="dynamic-side-panel-items-search-input" aria-describedby="_r_2a_" data-component="input" class="prc-components-Input-IwWrt" type="text" value="">
+
+XPATH:
+/html/body/div[1]/div[6]/main/div[2]/div/div/div[2]/h1
+
+HTML:
+<h1 class="h3 color-fg-muted mb-n2">
+  Here's what we found based on your interests...
+</h1>
+
+翻译:
+<h1 class="h3 color-fg-muted mb-n2">
+  这些是我们基于您的喜好找到的...
+</h1>
+
+XPATH:
+/html/body/div[1]/div[6]/main/div[2]/div/div/div[3]/div[1]/div[1]/h3
+
+HTML:
+<h3 class="Box-title">
+        <a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;TRENDING&quot;,&quot;click_visual_representation&quot;:&quot;TRENDING_REPOSITORIES_HEADING&quot;,&quot;actor_id&quot;:214134847,&quot;record_id&quot;:null,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:214134847}}" data-hydro-click-hmac="1757e1262ff8319a386f4167571347e27ce996367c74c23996463d461955c924" data-ga-click="Explore, go to Trending, location:trending repositories box" href="/trending" data-view-component="true" class="Link color-fg-default">Trending repositories <span class="text-normal color-fg-muted">today</span></a>      </h3>
+
+翻译:
+<h3 class="Box-title">
+        <a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;TRENDING&quot;,&quot;click_visual_representation&quot;:&quot;TRENDING_REPOSITORIES_HEADING&quot;,&quot;actor_id&quot;:214134847,&quot;record_id&quot;:null,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:214134847}}" data-hydro-click-hmac="1757e1262ff8319a386f4167571347e27ce996367c74c23996463d461955c924" data-ga-click="Explore, go to Trending, location:trending repositories box" href="/trending" data-view-component="true" class="Link color-fg-default">热门仓库 <span class="text-normal color-fg-muted">today</span></a>      </h3>
+
+XPATH:
+/html/body/div[1]/div[6]/main/div[2]/div/div/div[3]/div[2]/div[1]/h3/a
+
+HTML:
+<a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;TRENDING_DEVELOPERS&quot;,&quot;click_visual_representation&quot;:&quot;TRENDING_DEVELOPERS_HEADING&quot;,&quot;actor_id&quot;:214134847,&quot;record_id&quot;:null,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:214134847}}" data-hydro-click-hmac="17c6eed5211ca182e085efdd3291e8fd046b4b7669f5bca65715ee6750e13b9d" data-ga-click="Explore, go to Trending Developers, location:trending box" href="/trending/developers" data-view-component="true" class="Link color-fg-default">Trending developers</a>
+
+翻译:
+<a data-hydro-click="{&quot;event_type&quot;:&quot;explore.click&quot;,&quot;payload&quot;:{&quot;click_context&quot;:&quot;TRENDING_CARD&quot;,&quot;click_target&quot;:&quot;TRENDING_DEVELOPERS&quot;,&quot;click_visual_representation&quot;:&quot;TRENDING_DEVELOPERS_HEADING&quot;,&quot;actor_id&quot;:214134847,&quot;record_id&quot;:null,&quot;originating_url&quot;:&quot;https://github.com/explore&quot;,&quot;user_id&quot;:214134847}}" data-hydro-click-hmac="17c6eed5211ca182e085efdd3291e8fd046b4b7669f5bca65715ee6750e13b9d" data-ga-click="Explore, go to Trending Developers, location:trending box" href="/trending/developers" data-view-component="true" class="Link color-fg-default">热门开发者</a>
+
+XPATH:
+/html/body/div[1]/div[6]/main/div[2]/div/div/div[2]/aside/h2
+
+HTML:
+<h2 class="h2 lh-condensed my-2">
+    That's everything we found for you, for now.
+  </h2>
+
+翻译:
+<h2 class="h2 lh-condensed my-2">
+    暂时就为您找到这些了。
+  </h2>
+
+XPATH:
+/html/body/div[1]/div[6]/main/react-app/div/form/div[1]/div/div/h1
+
+HTML:
+<h1 class="prc-Heading-Heading-MtWFE" data-variant="medium">Create a new repository</h1>
+
+翻译:
+<h1 class="prc-Heading-Heading-MtWFE" data-variant="medium">创建一个新仓库</h1>
+
+XPATH:
+/html/body/div[1]/div[6]/main/react-app/div/form/div[1]/span/div
+
+HTML:
+<div>Repositories contain a project's files and version history.<span> Have a project elsewhere? <a class="prc-Link-Link-9ZwDx" data-component="Link" data-inline="true" href="/new/import" data-hydro-click="{&quot;event_type&quot;:&quot;repository_create.click&quot;,&quot;payload&quot;:{&quot;event_target&quot;:&quot;IMPORT_REPOSITORY_LINK&quot;,&quot;originating_url&quot;:&quot;https://github.com/new&quot;,&quot;user_id&quot;:214134847}}" data-hydro-click-hmac="67f5f2729969f31384ab37fdefdaced3ad6a7c327712d68225faa89c564dc5a4" data-ga-click="Create Repository, import repository, location:repo new">Import a repository</a>.</span></div>
+
+翻译:
+<div>仓库包含项目的文件和版本历史。<span> 在其他地方已有项目？ <a class="prc-Link-Link-9ZwDx" data-component="Link" data-inline="true" href="/new/import" data-hydro-click="{&quot;event_type&quot;:&quot;repository_create.click&quot;,&quot;payload&quot;:{&quot;event_target&quot;:&quot;IMPORT_REPOSITORY_LINK&quot;,&quot;originating_url&quot;:&quot;https://github.com/new&quot;,&quot;user_id&quot;:214134847}}" data-hydro-click-hmac="67f5f2729969f31384ab37fdefdaced3ad6a7c327712d68225faa89c564dc5a4" data-ga-click="Create Repository, import repository, location:repo new">导入一个仓库</a>。</span></div>
+
+XPATH:
+/html/body/div[1]/div[6]/main/react-app/div/form/div[2]
+
+HTML:
+<div class="text-italic fgColor-muted">Required fields are marked with an asterisk (*).</div>
+
+翻译:
+<div class="text-italic fgColor-muted">标有星号（*）的字段为必填项。</div>
+
+XPATH:
+/html/body/div[1]/div[6]/main/react-app/div/form/div[3]/div[1]/div[2]/h2
+
+HTML:
+<h2 class="ModernCreateForm-module__timelineItemHeading__DI6eg">General</h2>
+
+翻译:
+<h2 class="ModernCreateForm-module__timelineItemHeading__DI6eg">常规</h2>
+
+XPATH:
+/html/body/div[1]/div[6]/main/react-app/div/form/div[3]/div[1]/div[2]/div/div[1]/fieldset/div/div[1]/label/span/span[1]
+
+HTML:
+<span>Owner<span class="sr-only">(required)</span></span>
+
+翻译:
+<span>所有者<span class="sr-only">(required)</span></span>
+
+XPATH:
+/html/body/div[1]/div[6]/main/react-app/div/form/div[3]/div[1]/div[2]/div/div[1]/fieldset/div/div[2]/div/label/span/span[1]
+
+HTML:
+<span>Repository name</span>
+
+翻译:
+<span>仓库名</span>
+
+XPATH:
+/html/body/div[1]/div[6]/main/react-app/div/form/div[3]/div[2]/div[2]/h2
+
+HTML:
+<h2 class="ModernCreateForm-module__timelineItemHeading__DI6eg">Configuration</h2>
+
+翻译:
+<h2 class="ModernCreateForm-module__timelineItemHeading__DI6eg">配置</h2>
+
+XPATH:
+/html/body/div[1]/div[6]/main/react-app/div/form/div[4]/button/span/span
+
+HTML:
+<span data-component="text" class="prc-Button-Label-FWkx3">Create repository</span>
+
+翻译:
+<span data-component="text" class="prc-Button-Label-FWkx3">创建仓库</span>
+
+XPATH:
+/html/body/div[1]/div[1]/div/div/div/ul/li[1]/div/span[4]/div
+
+HTML:
+<div class="prc-ActionList-ItemDescriptionWrap-ujC8S" data-description-variant="block"><span id="_r_8m_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">Public</span><span id="_r_8m_--block-description" class="prc-ActionList-Description-Z-EZJ" data-component="ActionList.Description">Anyone on the internet can see this repository. You choose who can commit.</span></div>
+
+翻译:
+<div class="prc-ActionList-ItemDescriptionWrap-ujC8S" data-description-variant="block"><span id="_r_8m_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">公开</span><span id="_r_8m_--block-description" class="prc-ActionList-Description-Z-EZJ" data-component="ActionList.Description">互联网上的任何人都可以看到这个仓库。您可以选择谁可以提交。</span></div>
+
+XPATH:
+/html/body/div[1]/div[1]/div/div/div/ul/li[2]/div/span[4]/div
+
+HTML:
+<div class="prc-ActionList-ItemDescriptionWrap-ujC8S" data-description-variant="block"><span id="_r_8n_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">Private</span><span id="_r_8n_--block-description" class="prc-ActionList-Description-Z-EZJ" data-component="ActionList.Description">You choose who can see and commit to this repository.</span></div>
+
+翻译:
+<div class="prc-ActionList-ItemDescriptionWrap-ujC8S" data-description-variant="block"><span id="_r_8n_--label" class="prc-ActionList-ItemLabel-81ohH" data-component="ActionList.Item.Label">私有</span><span id="_r_8n_--block-description" class="prc-ActionList-Description-Z-EZJ" data-component="ActionList.Description">您可以选择谁可以查看和提交到这个仓库。</span></div>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/react-app/div/div/div/div/div/div/div/div[1]/div/div[2]/div[2]/div/div[3]/div/div/div[2]/ul/li[1]/a/div
+
+HTML:
+<div class="SectionFilterLink-module__title__VRe9O">Open</div>
+
+翻译:
+<div class="SectionFilterLink-module__title__VRe9O">开启</div>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/react-app/div/div/div/div/div/div/div/div[1]/div/div[2]/div[2]/div/div[3]/div/div/div[2]/ul/li[2]/a/div
+
+HTML:
+<div class="SectionFilterLink-module__title__VRe9O">Closed</div>
+
+翻译:
+<div class="SectionFilterLink-module__title__VRe9O">关闭</div>
+
+XPATH:
+/html/body/div[1]/div[6]/main/turbo-frame/div/div[2]/div[2]/div/a/span/span/span[1]
+
+HTML:
+<span class="d-none d-md-block">New pull request</span>
+
+翻译:
+<span class="d-none d-md-block">新建拉取请求</span>
+
+XPATH:
+/html/body/div[1]/div[6]/main/turbo-frame/div/div[1]/h1
+
+HTML:
+<h1 data-view-component="true" class="Subhead-heading Subhead-heading--large">Compare changes</h1>
+
+翻译:
+<h1 data-view-component="true" class="Subhead-heading Subhead-heading--large">比较更改</h1>
+
+XPATH:
+/html/body/div[1]/div[6]/main/turbo-frame/div/div[1]/div
+
+HTML:
+<div data-view-component="true" class="Subhead-description">      Compare changes across branches, commits, tags, and more below.
+        If you need to, you can also    <button type="button" data-view-component="true" class="js-toggle-range-editor-cross-repo btn-link">    compare across forks
+</button>.
+</div>
+
+翻译:
+<div data-view-component="true" class="Subhead-description">      在下面对比不同分支、提交、标签等之间的改动。
+        如有需要，也可以    <button type="button" data-view-component="true" class="js-toggle-range-editor-cross-repo btn-link">    跨复刻仓库进行对比
+</button>。
+</div>
+
+XPATH:
+/html/body/div[1]/div[6]/main/turbo-frame/div/div[3]/button
+
+HTML:
+<button data-ga-click="Repository, go to new pull request form, location:compare page; text:Create pull request" type="button" disabled="disabled" data-view-component="true" class="btn-primary btn">    Create pull request
+</button>
+
+翻译:
+<button data-ga-click="Repository, go to new pull request form, location:compare page; text:Create pull request" type="button" disabled="disabled" data-view-component="true" class="btn-primary btn">    创建拉取请求
+</button>
+
+XPATH:
+/html/body/div[1]/div[6]/main/turbo-frame/div/div[4]/h3
+
+HTML:
+<h3 data-view-component="true" class="mb-1 tmp-mb-1">Compare and review just about anything</h3>
+
+翻译:
+<h3 data-view-component="true" class="mb-1 tmp-mb-1">比较并审查几乎任何内容</h3>
+
+XPATH:
+//*[@id="issue-create-pane-title"]
+
+HTML:
+<h1 class="IssueCreatePage-module__IssueCreatePageHeading__zTf9z prc-Heading-Heading-MtWFE" id="issue-create-pane-title">Create new issue</h1>
+
+翻译:
+<h1 class="IssueCreatePage-module__IssueCreatePageHeading__zTf9z prc-Heading-Heading-MtWFE" id="issue-create-pane-title">创建新议题</h1>
+
+XPATH:
+/html/body/div[1]/div[6]/main/turbo-frame/react-app/div/div/div/div[2]/div/div/div[1]/div[1]/div/label/span
+
+HTML:
+<span class="prc-components-RequiredText-7UsHS"><span>Add a title</span><span>*</span></span>
+
+翻译:
+<span class="prc-components-RequiredText-7UsHS"><span>添加标题</span><span>*</span></span>
+
+XPATH:
+/html/body/div[1]/div[6]/main/turbo-frame/react-app/div/div/div/div[2]/div/div/div[1]/div[2]/div/div/div/slash-command-expander/fieldset/legend
+
+HTML:
+<legend class="InputLabel-module__InputLabel__mcyuL Label-module__inputLabel__A_BlL">Add a description</legend>
+
+翻译:
+<legend class="InputLabel-module__InputLabel__mcyuL Label-module__inputLabel__A_BlL">添加描述</legend>
+
+XPATH:
+/html/body/div[1]/div[6]/main/turbo-frame/react-app/div/div/div/div[2]/div/div/div[1]/div[2]/div/div/div/slash-command-expander/fieldset/div[2]/div[1]/div[1]/div[1]/div/div/nav/div/button[1]
+
+HTML:
+<button role="tab" tabindex="0" aria-selected="true" class="TabNav-item prc-TabNav-TabNavLink-u3umI selected prc-TabNav-Selected-LYsaH tab-nav-module__tabNavLink__UAgdT tab-nav-module__active__RvwQ0">Write</button>
+
+翻译:
+<button role="tab" tabindex="0" aria-selected="true" class="TabNav-item prc-TabNav-TabNavLink-u3umI selected prc-TabNav-Selected-LYsaH tab-nav-module__tabNavLink__UAgdT tab-nav-module__active__RvwQ0">编写</button>
+
+XPATH:
+/html/body/div[1]/div[6]/main/turbo-frame/react-app/div/div/div/div[2]/div/div/div[1]/div[2]/div/div/div/slash-command-expander/fieldset/div[2]/div[1]/div[1]/div[1]/div/div/nav/div/button[2]
+
+HTML:
+<button role="tab" tabindex="-1" class="TabNav-item prc-TabNav-TabNavLink-u3umI tab-nav-module__tabNavLink__UAgdT">Preview</button>
+
+翻译:
+<button role="tab" tabindex="-1" class="TabNav-item prc-TabNav-TabNavLink-u3umI tab-nav-module__tabNavLink__UAgdT">预览</button>
+
+XPATH:
+/html/body/div[1]/div[6]/main/turbo-frame/react-app/div/div/div/div[2]/div/div/div[3]/div/div[2]/div[2]/button[2]/span/span[1]
+
+HTML:
+<span data-component="text" class="prc-Button-Label-FWkx3">Create</span>
+
+翻译:
+<span data-component="text" class="prc-Button-Label-FWkx3">创建</span>

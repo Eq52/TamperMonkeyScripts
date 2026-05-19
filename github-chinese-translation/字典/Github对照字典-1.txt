@@ -1,0 +1,610 @@
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/div/div[2]/nav/ol/li/a/span
+
+HTML:
+<span class="styles-module__contextCrumbLast__tI2e3">Dashboard</span>
+
+翻译：
+<span class="styles-module__contextCrumbLast__tI2e3">仪表盘</span>
+
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/div/div[2]/div[1]/div[1]/button/span/span[2]
+
+HTML:
+<span data-component="text" class="prc-Button-Label-FWkx3"><span class="Search-module__placeholder__p9hbG Search-module__text__veSYi Search-module__value__TFoak">Type <kbd class="Search-module__kbd__WCskr">/</kbd> to search</span></span>
+
+翻译：
+<span data-component="text" class="prc-Button-Label-FWkx3"><span class="Search-module__placeholder__p9hbG Search-module__text__veSYi Search-module__value__TFoak">按下 <kbd class="Search-module__kbd__WCskr">/</kbd> 开始搜索</span></span>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/div/div[2]/div[3]/qbsearch-input/div[1]/div/modal-dialog/div/div/div/form/query-builder/div[1]/div[2]/ul/li[1]/ul/li/span/span[3]
+
+HTML:
+<span aria-hidden="true" class="ActionListItem-description QueryBuilder-ListItem-trailing">Search all of GitHub</span>
+
+翻译：
+<span aria-hidden="true" class="ActionListItem-description QueryBuilder-ListItem-trailing">搜索整个 GitHub</span>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/div/div[2]/div[3]/qbsearch-input/div[1]/div/modal-dialog/div/div/div/form/query-builder/div[1]/div[2]/ul/li[3]/h3
+
+HTML:
+<h3 role="presentation" class="ActionList-sectionDivider-title QueryBuilder-sectionTitle p-2 text-left" aria-hidden="true">
+          Repositories
+        </h3>
+
+翻译：
+<h3 role="presentation" class="ActionList-sectionDivider-title QueryBuilder-sectionTitle p-2 text-left" aria-hidden="true">
+          仓库
+        </h3>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/div/div[2]/div[3]/qbsearch-input/div[1]/div/modal-dialog/div/div/div/div/a
+
+HTML:
+<a target="_blank" href="https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax" data-view-component="true" class="Link color-fg-accent text-normal ml-2 tmp-ml-2">Search syntax tips</a>
+
+翻译：
+<a target="_blank" href="https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax" data-view-component="true" class="Link color-fg-accent text-normal ml-2 tmp-ml-2">搜索语法提示</a>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/div/div[2]/div[3]/qbsearch-input/div[1]/div/modal-dialog/div/div/div/div/button/span/span
+
+HTML:
+<span class="Button-label">Give feedback</span>
+
+翻译：
+<span class="Button-label">反馈</span>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[3]/include-fragment/div[1]/p
+
+HTML:
+<p class="color-fg-muted my-2">One moment please...</p>
+
+翻译：
+<p class="color-fg-muted my-2">请稍等...</p>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/h2
+
+HTML:
+<h2 class="f5 mb-1" data-target="feed-container.feedTitle">Feed</h2>
+
+翻译：
+<h2 class="f5 mb-1" data-target="feed-container.feedTitle">动态</h2>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/summary
+
+HTML:
+<summary style="padding-left: 0.75rem; padding-right: 0.75rem" role="button" data-target="details-toggle.summaryTarget" data-action="click:details-toggle#toggle" aria-expanded="false" data-view-component="true" class="hx_rsm-trigger btn" aria-haspopup="menu">    <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-filter mr-2 tmp-mr-2">
+    <path d="M.75 3h14.5a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1 0-1.5ZM3 7.75A.75.75 0 0 1 3.75 7h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 3 7.75Zm3 4a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path>
+</svg>Filter<span hidden="hidden" data-target="feed-container.filterCounter" title="0" data-view-component="true" class="Counter ml-2 tmp-ml-2">0</span>
+</summary>
+
+翻译：
+<summary style="padding-left: 0.75rem; padding-right: 0.75rem" role="button" data-target="details-toggle.summaryTarget" data-action="click:details-toggle#toggle" aria-expanded="false" data-view-component="true" class="hx_rsm-trigger btn" aria-haspopup="menu">    <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-filter mr-2 tmp-mr-2">
+    <path d="M.75 3h14.5a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1 0-1.5ZM3 7.75A.75.75 0 0 1 3.75 7h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 3 7.75Zm3 4a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path>
+</svg>筛选<span hidden="hidden" data-target="feed-container.filterCounter" title="0" data-view-component="true" class="Counter ml-2 tmp-ml-2">0</span>
+</summary>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[1]/span
+
+HTML:
+<span class="SelectMenu-title">Filter</span>
+
+翻译：
+<span class="SelectMenu-title">筛选</span>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[1]/h5
+
+HTML:
+<h5 class="d-flex flex-items-center">
+        Events
+      </h5>
+
+翻译：
+<h5 class="d-flex flex-items-center">
+        活动
+      </h5>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[1]/p
+
+HTML:
+<p class="small color-fg-muted mt-1">Activity you want to see on your feed</p>
+
+翻译：
+<p class="small color-fg-muted mt-1">你希望在动态中看到的活动</p>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[2]/label[1]/div[1]/h5
+
+HTML:
+<h5 class="d-flex flex-items-center">
+              Announcements
+            </h5>
+
+翻译：
+<h5 class="d-flex flex-items-center">
+              公告
+            </h5>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[2]/label[2]/div[1]/h5
+
+HTML:
+<h5 class="d-flex flex-items-center">
+              Releases
+            </h5>
+
+翻译：
+<h5 class="d-flex flex-items-center">
+              发行版
+            </h5>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[2]/label[3]/div[1]/h5
+
+HTML:
+<h5 class="d-flex flex-items-center">
+              Sponsors
+            </h5>
+
+翻译：
+<h5 class="d-flex flex-items-center">
+              赞助
+            </h5>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[2]/label[4]/div[1]/h5
+
+HTML:
+<h5 class="d-flex flex-items-center">
+              Stars
+            </h5>
+
+翻译：
+<h5 class="d-flex flex-items-center">
+              星标
+            </h5>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[2]/label[5]/div[1]/h5
+
+HTML:
+<h5 class="d-flex flex-items-center">
+              Repositories
+            </h5>
+
+翻译：
+<h5 class="d-flex flex-items-center">
+              仓库
+            </h5>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[2]/label[6]/div[1]/h5
+
+HTML:
+<h5 class="d-flex flex-items-center">
+              Repository activity
+            </h5>
+
+翻译：
+<h5 class="d-flex flex-items-center">
+              仓库活动
+            </h5>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[2]/label[7]/div[1]/h5
+
+HTML:
+<h5 class="d-flex flex-items-center">
+              Follows
+            </h5>
+
+翻译：
+<h5 class="d-flex flex-items-center">
+              关注
+            </h5>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[2]/label[8]/div[1]/h5
+
+HTML:
+<h5 class="d-flex flex-items-center">
+              Recommendations
+            </h5>
+
+翻译：
+<h5 class="d-flex flex-items-center">
+              推荐
+            </h5>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[3]/label/div[1]/h5
+
+HTML:
+<h5 class="d-flex flex-items-center ml-2">
+            Include events from starred repositories
+          </h5>
+
+翻译：
+<h5 class="d-flex flex-items-center ml-2">
+            包含来自已星标仓库的事件
+          </h5>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[2]/div[3]/label/div[2]/span
+
+HTML:
+<span class="small color-fg-muted mt-1" style="margin-left: 21px">By default, the feed shows events from repositories you sponsor or watch, and people you follow.</span>
+
+翻译：
+<span class="small color-fg-muted mt-1" style="margin-left: 21px">默认情况下，动态信息流会显示来自您赞助或关注的仓库以及您关注的人的活动。</span>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[3]/button[1]/span/span
+
+HTML:
+<span class="Button-label">Reset to default</span>
+
+翻译：
+<span class="Button-label">重置</span>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/main/div/div/div[2]/feed-container/div[1]/div/details-toggle/details/details-menu/feed-filter/div[3]/button[2]/span/span
+
+HTML:
+<span class="Button-label">Save</span>
+
+翻译：
+<span class="Button-label">保存</span>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/footer/div/nav/ul/li[1]/a
+
+HTML:
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to Terms&quot;,&quot;label&quot;:&quot;text:terms&quot;}" href="https://docs.github.com/site-policy/github-terms/github-terms-of-service" data-view-component="true" class="Link--secondary Link">Terms</a>
+
+翻译：
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to Terms&quot;,&quot;label&quot;:&quot;text:terms&quot;}" href="https://docs.github.com/site-policy/github-terms/github-terms-of-service" data-view-component="true" class="Link--secondary Link">条款</a>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/footer/div/nav/ul/li[2]/a
+
+HTML:
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to privacy&quot;,&quot;label&quot;:&quot;text:privacy&quot;}" href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" data-view-component="true" class="Link--secondary Link">Privacy</a>
+
+翻译：
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to privacy&quot;,&quot;label&quot;:&quot;text:privacy&quot;}" href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" data-view-component="true" class="Link--secondary Link">隐私</a>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/footer/div/nav/ul/li[3]/a
+
+HTML:
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to security&quot;,&quot;label&quot;:&quot;text:security&quot;}" href="https://github.com/security" data-view-component="true" class="Link--secondary Link">Security</a>
+
+翻译：
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to security&quot;,&quot;label&quot;:&quot;text:security&quot;}" href="https://github.com/security" data-view-component="true" class="Link--secondary Link">安全</a>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/footer/div/nav/ul/li[4]/a
+
+HTML:
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to status&quot;,&quot;label&quot;:&quot;text:status&quot;}" href="https://www.githubstatus.com/" data-view-component="true" class="Link--secondary Link">Status</a>
+
+翻译：
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to status&quot;,&quot;label&quot;:&quot;text:status&quot;}" href="https://www.githubstatus.com/" data-view-component="true" class="Link--secondary Link">状态</a>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/footer/div/nav/ul/li[5]/a
+
+HTML:
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to community&quot;,&quot;label&quot;:&quot;text:community&quot;}" href="https://github.community/" data-view-component="true" class="Link--secondary Link">Community</a>
+
+翻译：
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to community&quot;,&quot;label&quot;:&quot;text:community&quot;}" href="https://github.community/" data-view-component="true" class="Link--secondary Link">社区</a>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/footer/div/nav/ul/li[6]/a
+
+HTML:
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to docs&quot;,&quot;label&quot;:&quot;text:docs&quot;}" href="https://docs.github.com/" data-view-component="true" class="Link--secondary Link">Docs</a>
+
+翻译：
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to docs&quot;,&quot;label&quot;:&quot;text:docs&quot;}" href="https://docs.github.com/" data-view-component="true" class="Link--secondary Link">文档</a>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/footer/div/nav/ul/li[7]/a
+
+HTML:
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to contact&quot;,&quot;label&quot;:&quot;text:contact&quot;}" href="https://support.github.com?tags=dotcom-footer" data-view-component="true" class="Link--secondary Link">Contact</a>
+
+翻译：
+<a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to contact&quot;,&quot;label&quot;:&quot;text:contact&quot;}" href="https://support.github.com?tags=dotcom-footer" data-view-component="true" class="Link--secondary Link">联系</a>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/footer/div/nav/ul/li[8]/cookie-consent-link/button
+
+HTML:
+<button type="button" class="Link--secondary underline-on-hover border-0 p-0 color-bg-transparent" data-action="click:cookie-consent-link#showConsentManagement" data-analytics-event="{&quot;location&quot;:&quot;footer&quot;,&quot;action&quot;:&quot;cookies&quot;,&quot;context&quot;:&quot;subfooter&quot;,&quot;tag&quot;:&quot;link&quot;,&quot;label&quot;:&quot;cookies_link_subfooter_footer&quot;}">
+       Manage cookies
+    </button>
+
+翻译：
+<button type="button" class="Link--secondary underline-on-hover border-0 p-0 color-bg-transparent" data-action="click:cookie-consent-link#showConsentManagement" data-analytics-event="{&quot;location&quot;:&quot;footer&quot;,&quot;action&quot;:&quot;cookies&quot;,&quot;context&quot;:&quot;subfooter&quot;,&quot;tag&quot;:&quot;link&quot;,&quot;label&quot;:&quot;cookies_link_subfooter_footer&quot;}">
+       管理 cookies
+    </button>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/div/div/div/div/footer/div/nav/ul/li[9]/cookie-consent-link/button
+
+HTML:
+<button type="button" class="Link--secondary underline-on-hover border-0 p-0 color-bg-transparent text-left" data-action="click:cookie-consent-link#showConsentManagement" data-analytics-event="{&quot;location&quot;:&quot;footer&quot;,&quot;action&quot;:&quot;dont_share_info&quot;,&quot;context&quot;:&quot;subfooter&quot;,&quot;tag&quot;:&quot;link&quot;,&quot;label&quot;:&quot;dont_share_info_link_subfooter_footer&quot;}">
+      Do not share my personal information
+    </button>
+
+翻译：
+<button type="button" class="Link--secondary underline-on-hover border-0 p-0 color-bg-transparent text-left" data-action="click:cookie-consent-link#showConsentManagement" data-analytics-event="{&quot;location&quot;:&quot;footer&quot;,&quot;action&quot;:&quot;dont_share_info&quot;,&quot;context&quot;:&quot;subfooter&quot;,&quot;tag&quot;:&quot;link&quot;,&quot;label&quot;:&quot;dont_share_info_link_subfooter_footer&quot;}">
+      不要分享我的个人信息
+    </button>
+
+XPATH:
+/html/body/div[1]/div[6]/div/div/aside/div/div/loading-context/div/div/div/div/div[1]/h2
+
+HTML:
+<h2 class="f5"> Top repositories</h2>
+
+翻译：
+<h2 class="f5"> 热门仓库</h2>
+
+XPATH:
+//*[@id="dashboard-repos-filter-left"]
+
+HTML:
+<input type="text" class="form-control input-contrast input-block tmp-mb-3 js-filterable-field js-your-repositories-search" id="dashboard-repos-filter-left" placeholder="Find a repository…" aria-label="Find a repository…" data-url="/" data-query-name="q" value="" autocomplete="off">
+
+翻译：
+<input type="text" class="form-control input-contrast input-block tmp-mb-3 js-filterable-field js-your-repositories-search" id="dashboard-repos-filter-left" placeholder="查找仓库…" aria-label="Find a repository…" data-url="/" data-query-name="q" value="" autocomplete="off">
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[1]/div/div/h2
+
+HTML:
+<h2 class="tmp-mb-3 h4">About</h2>
+
+翻译：
+<h2 class="tmp-mb-3 h4">关于</h2>
+
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/nav/ul/li[1]/a/span[2]
+
+HTML:
+<span data-component="text" data-content="Code">Code</span>
+
+翻译：
+<span data-component="text" data-content="Code">代码</span>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/nav/ul/li[2]/a/span[2]
+
+HTML:
+<span data-component="text" data-content="Issues">Issues</span>
+
+翻译：
+<span data-component="text" data-content="Issues">议题</span>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/nav/ul/li[3]/a/span[2]
+
+HTML:
+<span data-component="text" data-content="Pull requests">Pull requests</span>
+
+翻译：
+<span data-component="text" data-content="Pull requests">拉取请求</span>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[2]/div/h2/a
+
+HTML:
+<a href="/User/repo/releases" data-view-component="true" class="Link--primary no-underline Link" data-turbo-frame="repo-content-turbo-frame">Releases
+      <span title="8" data-view-component="true" class="Counter">8</span></a>
+
+翻译：
+<a href="/User/repo/releases" data-view-component="true" class="Link--primary no-underline Link" data-turbo-frame="repo-content-turbo-frame">发行版
+      <span title="8" data-view-component="true" class="Counter">8</span></a>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[3]/div/h2/a
+
+HTML:
+<a href="/users/User/packages?repo_name=repo" data-view-component="true" class="Link--primary no-underline Link d-flex flex-items-center">Packages
+      <span title="0" hidden="hidden" data-view-component="true" class="Counter ml-1 tmp-ml-1">0</span></a>
+
+翻译：
+<a href="/users/User/packages?repo_name=repo" data-view-component="true" class="Link--primary no-underline Link d-flex flex-items-center">包
+      <span title="0" hidden="hidden" data-view-component="true" class="Counter ml-1 tmp-ml-1">0</span></a>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[4]/div/h2/a
+
+HTML:
+<a href="/User/repo/graphs/contributors" data-view-component="true" class="Link--primary no-underline Link d-flex flex-items-center">Contributors
+      <span title="1" data-view-component="true" class="Counter ml-1 tmp-ml-1">1</span></a>
+
+翻译：
+<a href="/User/repo/graphs/contributors" data-view-component="true" class="Link--primary no-underline Link d-flex flex-items-center">贡献者
+      <span title="1" data-view-component="true" class="Counter ml-1 tmp-ml-1">1</span></a>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[5]/div/h2
+
+HTML:
+<h2 class="h4 tmp-mb-3">Languages</h2>
+
+翻译：
+<h2 class="h4 tmp-mb-3">代码语言</h2>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[6]/div/div[1]/h2
+
+HTML:
+<h2 data-view-component="true" class="h4 Subhead-heading Subhead-heading--large">        Suggested workflows
+</h2>
+
+翻译：
+<h2 data-view-component="true" class="h4 Subhead-heading Subhead-heading--large">        推荐的工作流
+</h2>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[1]/div/details/details-dialog/div[1]/h1
+
+HTML:
+<h1 class="Box-title">Edit repository details</h1>
+
+翻译：
+<h1 class="Box-title">编辑仓库详情</h1>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[1]/div/details/details-dialog/div[2]/div/form/div[1]/div[1]/label
+
+HTML:
+<label for="repo_description">Description</label>
+
+翻译：
+<label for="repo_description">描述</label>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[1]/div/details/details-dialog/div[2]/div/form/div[2]/div/label
+
+HTML:
+<label for="repo_homepage">Website</label>
+
+翻译：
+<label for="repo_homepage">网站</label>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[1]/div/details/details-dialog/div[2]/div/form/div[2]/label
+
+HTML:
+<label class="text-bold mt-2 d-flex flex-items-center gap-1">
+                  <input name="repo_sections[pages_url]" type="hidden" value="0" autocomplete="off"><input class="js-use-pages-url" type="checkbox" value="1" name="repo_sections[pages_url]" id="repo_sections_pages_url"> Use your GitHub Pages website
+              </label>
+
+翻译：
+<label class="text-bold mt-2 d-flex flex-items-center gap-1">
+                  <input name="repo_sections[pages_url]" type="hidden" value="0" autocomplete="off"><input class="js-use-pages-url" type="checkbox" value="1" name="repo_sections[pages_url]" id="repo_sections_pages_url"> 使用 GitHub Pages 网站
+              </label>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[1]/div/details/details-dialog/div[3]/div/button[2]
+
+HTML:
+<button type="reset" class="btn" data-close-dialog="" form="repo_metadata_form">Cancel</button>
+
+翻译：
+<button type="reset" class="btn" data-close-dialog="" form="repo_metadata_form">取消</button>
+
+XPATH:
+/html/body/div[1]/div[6]/div/main/turbo-frame/div/react-app/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div[2]/div[2]/rails-partial/div/div[1]/div/details/details-dialog/div[3]/div/button[1]
+
+HTML:
+<button type="submit" class="btn btn-primary" form="repo_metadata_form">Save changes</button>
+
+翻译：
+<button type="submit" class="btn btn-primary" form="repo_metadata_form">保存改动</button>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/div[1]/div[2]/div[3]/qbsearch-input/div[1]/div/modal-dialog/div/div/div/form/query-builder/div[1]/div[2]/ul/li[1]/ul/li[1]/span/span[3]
+
+HTML:
+<span aria-hidden="true" class="ActionListItem-description QueryBuilder-ListItem-trailing">Search in this repository</span>
+
+翻译：
+<span aria-hidden="true" class="ActionListItem-description QueryBuilder-ListItem-trailing">在该仓内搜索</span>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/div[1]/div[2]/div[3]/qbsearch-input/div[1]/div/modal-dialog/div/div/div/form/query-builder/div[1]/div[2]/ul/li[3]/h3
+
+HTML:
+<h3 role="presentation" class="ActionList-sectionDivider-title QueryBuilder-sectionTitle p-2 text-left" aria-hidden="true">
+          Code
+        </h3>
+
+翻译：
+<h3 role="presentation" class="ActionList-sectionDivider-title QueryBuilder-sectionTitle p-2 text-left" aria-hidden="true">
+          代码
+        </h3>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/div[1]/div[2]/div[3]/qbsearch-input/div[1]/div/modal-dialog/div/div/div/form/query-builder/div[1]/div[2]/ul/li[1]/ul/li[2]/span/span[3]
+
+HTML:
+<span aria-hidden="true" class="ActionListItem-description QueryBuilder-ListItem-trailing">Search in this owner</span>
+
+翻译：
+<span aria-hidden="true" class="ActionListItem-description QueryBuilder-ListItem-trailing">在此账号中搜索</span>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/nav/ul/li[1]/a/span[2]
+
+HTML:
+<span data-component="text" data-content="Overview">Overview</span>
+
+翻译:
+<span data-component="text" data-content="Overview">概述</span>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/nav/ul/li[2]/a/span[2]
+
+HTML:
+<span data-component="text" data-content="Repositories">Repositories</span>
+
+翻译:
+<span data-component="text" data-content="Repositories">仓库</span>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/nav/ul/li[3]/a/span[2]
+
+HTML:
+<span data-component="text" data-content="Projects">Projects</span>
+
+翻译:
+<span data-component="text" data-content="Projects">项目</span>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/nav/ul/li[4]/a/span[2]
+
+HTML:
+<span data-component="text" data-content="Packages">Packages</span>
+
+翻译:
+<span data-component="text" data-content="Packages">包</span>
+
+XPATH:
+/html/body/div[1]/div[2]/react-partial[2]/div/header/nav/ul/li[5]/a/span[2]
+
+HTML:
+<span data-component="text" data-content="Stars">Stars</span>
+
+翻译:
+<span data-component="text" data-content="Stars">星标</span>
+
+XPATH:
+/html/body/div[1]/div[6]/main/div/div/div[2]/turbo-frame/div/div[3]/div/div[1]/div[2]/h2
+
+HTML:
+<h2 class="f4 text-normal tmp-mt-4 tmp-mb-3">
+    Contribution activity
+  </h2>
+
+翻译:
+<h2 class="f4 text-normal tmp-mt-4 tmp-mb-3">
+    贡献动态
+  </h2>
