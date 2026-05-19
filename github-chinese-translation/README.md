@@ -4,7 +4,7 @@
 
 - 将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 创建仓库 / Compare / 议题 / 设置页完整翻译 / 代码浏览 / 议题详情 / Markdown 工具栏 / 通用动词 / 页脚）
 
-- AI翻译 + 人类翻译 + [github-chinese](https://github.com/maboloshi/github-chinese/) 
+- AI翻译 + 人类翻译 + [github-chinese](https://github.com/maboloshi/github-chinese/) (部分)
 
 该脚本的目的是汉化GitHub，应用该脚本后可达到使GitHub部分英文转换为中文的效果。
 
