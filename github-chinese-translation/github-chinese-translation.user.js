@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         GitHub 汉化插件
 // @namespace    https://github.com/Eq52/TamperMonkeyScripts/tree/main/github-chinese-translation
-// @version      1.2.0
-// @description  将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 创建仓库 / Compare / 议题 / 设置页 / 代码浏览 / 页脚）
+// @version      2.0.0
+// @description  将 GitHub 界面翻译为中文（Dashboard / 导航 / 搜索 / 筛选 / 仓库 / 创建仓库 / Compare / 议题 / 设置页 / 代码浏览 / 议题详情 / Markdown 工具栏 / 通用动词 / 页脚）
 // @icon         https://free.boltp.com/2026/05/19/6a0c02479cd6a.webp
 // @license      GPL-3.0-only
 // @author       Eq52
@@ -322,6 +322,23 @@
         },
         { pattern: 'Customize your pins', replacement: '自定义你的置顶项' },
         { pattern: 'Contribution settings', replacement: '贡献设置' },
+        // 贡献时间线汇总："Created 65 commits in 5 repositories"（含换行/空格分隔的文本节点）
+        {
+            selector: 'summary span.color-fg-default',
+            replace(el) {
+                const text = normalize(el.textContent);
+                const m = text.match(/^Created\s+(\d+)\s+commits?\s+in\s+(\d+)\s+repositories?$/);
+                if (!m) return false;
+                // 只替换文本节点，保留可能的子元素
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        node.textContent = '';
+                    }
+                });
+                el.childNodes[0].textContent = `在 ${m[2]} 个仓库中创建了 ${m[1]} 个提交`;
+                return true;
+            },
+        },
 
         // ================================================================
         //  创建菜单（ActionList.Item.Label 系列）
@@ -654,6 +671,496 @@
             },
         },
         { pattern: 'Preview', replacement: '预览', selector: 'button[role="tab"]' },
+
+        // ================================================================
+        //  通用动词和 UI 文本（无选择器约束，全局匹配）
+        //  来源：maboloshi/github-chinese locals.js public section
+        // ================================================================
+
+        { pattern: 'Search', replacement: '搜索' },
+        { pattern: 'Sign in', replacement: '登录' },
+        { pattern: 'Sign up', replacement: '注册' },
+        { pattern: 'Sign out', replacement: '退出' },
+        { pattern: 'Error', replacement: '错误' },
+        { pattern: 'Close', replacement: '关闭' },
+        { pattern: 'Open', replacement: '打开' },
+        { pattern: 'Closed', replacement: '已关闭' },
+        { pattern: 'Reopen', replacement: '重新打开' },
+        { pattern: 'Delete', replacement: '删除' },
+        { pattern: 'Copy', replacement: '复制' },
+        { pattern: 'View', replacement: '查看' },
+        { pattern: 'Create', replacement: '创建' },
+        { pattern: 'Add', replacement: '添加' },
+        { pattern: 'Update', replacement: '更新' },
+        { pattern: 'Save', replacement: '保存' },
+        { pattern: 'Loading', replacement: '加载中' },
+        { pattern: 'Enable', replacement: '启用' },
+        { pattern: 'Enabled', replacement: '启用' },
+        { pattern: 'Disable', replacement: '禁用' },
+        { pattern: 'Disabled', replacement: '禁用' },
+        { pattern: 'Install', replacement: '安装' },
+        { pattern: 'Remove', replacement: '移除' },
+        { pattern: 'Back', replacement: '返回' },
+        { pattern: 'Send', replacement: '发送' },
+        { pattern: 'Retry', replacement: '重试' },
+        { pattern: 'Upload', replacement: '上传' },
+        { pattern: 'Download', replacement: '下载' },
+        { pattern: 'Copy link', replacement: '复制链接' },
+        { pattern: 'Copied!', replacement: '复制成功！' },
+        { pattern: 'Copy to clipboard', replacement: '复制到剪切板' },
+        { pattern: 'No results found.', replacement: '未找到结果。' },
+        { pattern: 'Try again', replacement: '重试' },
+        { pattern: 'Next', replacement: '下一页' },
+        { pattern: 'Previous', replacement: '上一页' },
+        { pattern: 'Prev', replacement: '上一页' },
+        { pattern: 'More', replacement: '更多' },
+        { pattern: 'Less', replacement: '更少' },
+        { pattern: 'Show less', replacement: '显示更少' },
+        { pattern: 'Load more…', replacement: '载入更多…' },
+        { pattern: 'Load more...', replacement: '载入更多…' },
+        { pattern: 'Show more', replacement: '显示更多' },
+        { pattern: 'Follow', replacement: '关注' },
+        { pattern: 'Unfollow', replacement: '取消关注' },
+        { pattern: 'Star', replacement: '星标' },
+        { pattern: 'Unstar', replacement: '取消星标' },
+        { pattern: 'Starred', replacement: '已加星标' },
+        { pattern: 'Fork', replacement: '复刻' },
+        { pattern: 'Learn more', replacement: '了解更多' },
+        { pattern: 'Learn More', replacement: '了解更多' },
+        { pattern: 'Learn more.', replacement: '了解更多。' },
+        { pattern: 'New', replacement: '新建' },
+        { pattern: 'Title', replacement: '标题' },
+        { pattern: 'Label', replacement: '标签' },
+        { pattern: 'Labels', replacement: '标签' },
+        { pattern: 'Milestones', replacement: '里程碑' },
+        { pattern: 'Comment', replacement: '评论' },
+        { pattern: 'Reply', replacement: '回复' },
+        { pattern: 'Answer', replacement: '答复' },
+        { pattern: 'Assignee', replacement: '受理人' },
+        { pattern: 'Organization', replacement: '组织' },
+        { pattern: 'Organizations', replacement: '组织' },
+        { pattern: 'People', replacement: '成员' },
+        { pattern: 'Teams', replacement: '团队' },
+        { pattern: 'Team', replacement: '团队' },
+        { pattern: 'Followers', replacement: '关注者' },
+        { pattern: 'Notifications', replacement: '通知' },
+        { pattern: 'Actions', replacement: '操作' },
+        { pattern: 'Insights', replacement: '洞察' },
+        { pattern: 'Settings', replacement: '设置' },
+        { pattern: 'Security', replacement: '安全' },
+        { pattern: 'Verified', replacement: '已验证' },
+        { pattern: 'Expired', replacement: '已过期' },
+        { pattern: 'Unverified', replacement: '未验证' },
+        { pattern: 'Approved', replacement: '已批准' },
+        { pattern: 'Dismiss', replacement: '拒绝' },
+        { pattern: 'Allow', replacement: '允许' },
+        { pattern: 'Reject', replacement: '拒绝' },
+        { pattern: 'Accept', replacement: '接受' },
+        { pattern: 'Free', replacement: '免费' },
+        { pattern: 'Upgrade', replacement: '升级' },
+        { pattern: 'Profile', replacement: '个人资料' },
+        { pattern: 'Members', replacement: '成员' },
+        { pattern: 'conversations', replacement: '对话' },
+        { pattern: 'Templates', replacement: '模板' },
+        { pattern: 'Files', replacement: '文件' },
+        { pattern: 'conversations', replacement: '对话' },
+        { pattern: 'Filters', replacement: '筛选' },
+        { pattern: 'New issue', replacement: '创建议题' },
+        { pattern: 'Sort', replacement: '排序' },
+        { pattern: 'List', replacement: '列表' },
+        { pattern: 'Board', replacement: '看板' },
+        { pattern: 'None yet', replacement: '暂无' },
+        { pattern: 'No description', replacement: '暂无描述' },
+        { pattern: 'Loading…', replacement: '加载中…' },
+        { pattern: 'Loading...', replacement: '加载中…' },
+        { pattern: 'Saving…', replacement: '保存中…' },
+        { pattern: 'Saving...', replacement: '保存中…' },
+        { pattern: 'Updating…', replacement: '更新中…' },
+        { pattern: 'Updating...', replacement: '更新中…' },
+        { pattern: 'Creating...', replacement: '创建中…' },
+        { pattern: 'just now', replacement: '刚刚' },
+        { pattern: 'now', replacement: '当前' },
+        { pattern: 'yesterday', replacement: '昨天' },
+        { pattern: 'last month', replacement: '上个月' },
+        { pattern: 'committed', replacement: '提交于' },
+        { pattern: 'authored', replacement: '撰写于' },
+        { pattern: 'contributors', replacement: '贡献者' },
+        { pattern: 'Updated on', replacement: '更新于' },
+        { pattern: 'added on', replacement: '添加于' },
+        { pattern: 'Sponsoring', replacement: '赞助者' },
+        { pattern: 'Public', replacement: '公开' },
+        { pattern: 'Private', replacement: '私有' },
+        { pattern: 'Visibility', replacement: '可见性' },
+        { pattern: 'Source', replacement: '源码' },
+        { pattern: 'Default', replacement: '默认' },
+        { pattern: 'Active', replacement: '活跃' },
+        { pattern: 'Merged', replacement: '已合并' },
+        { pattern: 'Draft', replacement: '草稿' },
+        { pattern: 'Ready for review', replacement: '等待审查' },
+        { pattern: 'Changes requested', replacement: '请求更改' },
+        { pattern: 'Review required', replacement: '请求审查' },
+        { pattern: 'Conversation', replacement: '对话' },
+        { pattern: 'Commits', replacement: '提交' },
+        { pattern: 'Checks', replacement: '检查' },
+        { pattern: 'Files changed', replacement: '更改的文件' },
+        { pattern: 'Show more commits', replacement: '显示更多提交' },
+        { pattern: 'Conversation', replacement: '对话' },
+        { pattern: 'Checks', replacement: '检查' },
+        { pattern: 'Are you sure?', replacement: '您确定吗？' },
+        { pattern: 'Are you sure? This can\u0027t be undone.', replacement: '您确定吗？此操作无法撤销。' },
+        { pattern: 'This repository has been archived.', replacement: '此仓库已存档。' },
+        { pattern: 'This repository has been archived by the owner. It is now read-only.', replacement: '此仓库已被所有者存档。它现在是只读的。' },
+        { pattern: 'No results matched your search', replacement: '没有与您的搜索相符的结果' },
+        { pattern: 'Jump to bottom', replacement: '跳到底部' },
+        { pattern: 'Forked from', replacement: '复刻自' },
+        { pattern: 'Copy code', replacement: '复制代码' },
+        { pattern: 'Copy head branch name to clipboard', replacement: '复制头分支名称到剪贴板' },
+        { pattern: 'Copy permalink', replacement: '复制永久链接' },
+        { pattern: 'Select a branch', replacement: '选择分支' },
+        { pattern: 'Find a branch...', replacement: '查找分支…' },
+        { pattern: 'Switch branches', replacement: '切换分支' },
+        { pattern: 'Filter branches', replacement: '查找分支' },
+        { pattern: 'View all branches', replacement: '查看所有分支' },
+        { pattern: 'Go to file', replacement: '转到文件' },
+        { pattern: 'Go to line', replacement: '转到行' },
+        { pattern: 'Blame', replacement: '追溯' },
+        { pattern: 'Raw', replacement: '源码' },
+        { pattern: 'View raw', replacement: '查看源码' },
+        { pattern: 'Delete file', replacement: '删除文件' },
+        { pattern: 'File mode', replacement: '文件模式' },
+        { pattern: 'Blame mode', replacement: '追溯模式' },
+        { pattern: 'Last commit date', replacement: '最近提交日期' },
+        { pattern: 'Commit history', replacement: '提交历史' },
+        { pattern: 'Create a new file', replacement: '创建新文件' },
+        { pattern: 'Upload files', replacement: '上传文件' },
+        { pattern: 'Find file', replacement: '查找文件' },
+        { pattern: 'Clone', replacement: '克隆' },
+        { pattern: 'Use Git or checkout with SVN using the web URL.', replacement: '使用 Git 或 SVN 克隆。' },
+        { pattern: 'HTTPS', replacement: 'HTTPS' },
+        { pattern: 'SSH', replacement: 'SSH' },
+        { pattern: 'GitHub CLI', replacement: 'GitHub CLI' },
+        { pattern: 'Use this QR code to open this page on your mobile device.', replacement: '使用此二维码在移动设备上打开此页面。' },
+        { pattern: 'Open with Desktop', replacement: '在桌面端打开' },
+        { pattern: 'Download ZIP', replacement: '下载 ZIP' },
+
+        // ================================================================
+        //  议题 / PR 详情页通用文本
+        // ================================================================
+
+        { pattern: 'Leave a comment', replacement: '发表评论' },
+        { pattern: 'Write a reply', replacement: '发表回复' },
+        { pattern: 'Write a comment', replacement: '发表评论' },
+        { pattern: 'Add a comment', replacement: '添加评论' },
+        { pattern: 'Add review comment', replacement: '添加审查意见' },
+        { pattern: 'Start a review', replacement: '开始审查' },
+        { pattern: 'Close issue', replacement: '关闭议题' },
+        { pattern: 'Close pull request', replacement: '关闭拉取请求' },
+        { pattern: 'Reopen issue', replacement: '重新打开议题' },
+        { pattern: 'Reopen pull request', replacement: '重新打开拉取请求' },
+        { pattern: 'Close with comment', replacement: '评论并关闭' },
+        { pattern: 'Reopen with comment', replacement: '重新打开评论' },
+        { pattern: 'Submit new issue', replacement: '提交新议题' },
+        { pattern: 'Close as completed', replacement: '完成后关闭' },
+        { pattern: 'Close as not planned', replacement: '非计划中关闭' },
+        { pattern: 'Close as resolved', replacement: '因解决而关闭' },
+        { pattern: 'Close as outdated', replacement: '因过时而关闭' },
+        { pattern: 'Close as duplicate', replacement: '因重复而关闭' },
+        { pattern: 'Duplicate of another issue', replacement: '重复议题' },
+        { pattern: 'Apply Suggestion', replacement: '采纳建议' },
+        { pattern: 'Add a suggestion', replacement: '添加建议' },
+        { pattern: 'Show description', replacement: '显示描述' },
+        { pattern: 'Hide description', replacement: '隐藏描述' },
+        { pattern: 'Conversation', replacement: '对话' },
+        { pattern: 'Checks', replacement: '检查' },
+        { pattern: 'Files changed', replacement: '更改的文件' },
+        { pattern: 'Show more commits', replacement: '显示更多提交' },
+        { pattern: 'Merged by', replacement: '合并者' },
+        { pattern: 'requested review from', replacement: '请求审查来自' },
+        { pattern: 'approved these changes', replacement: '批准了这些更改' },
+        { pattern: 'requested changes', replacement: '请求更改' },
+        { pattern: 'left review comments', replacement: '留下审查意见' },
+        { pattern: 'Self-merge', replacement: '自我合并' },
+        { pattern: 'Some checks haven\u0027t completed yet', replacement: '部分检查还未完成' },
+        { pattern: 'All checks have passed', replacement: '所有检查已通过' },
+        { pattern: 'Merge pull request', replacement: '合并拉取请求' },
+        { pattern: 'Merge branch', replacement: '合并分支' },
+        { pattern: 'Confirm merge', replacement: '确认合并' },
+        { pattern: 'Close and comment', replacement: '评论并关闭' },
+        { pattern: 'Reopen and comment', replacement: '提交并重新打开' },
+        { pattern: 'Edited', replacement: '已编辑' },
+        { pattern: 'Assigned to', replacement: '分配给' },
+        { pattern: 'Mentioned', replacement: '提及' },
+        { pattern: 'Review requested', replacement: '请求审查' },
+        { pattern: 'Reviewed', replacement: '已审查' },
+        { pattern: 'Authored', replacement: '由您创建' },
+        { pattern: 'linked a pull request', replacement: '关联了拉取请求' },
+        { pattern: 'marked this pull request as ready for review', replacement: '将此拉取请求标记为等待审查' },
+        { pattern: 'Review status', replacement: '审查状态' },
+        { pattern: 'No reviews', replacement: '暂无审查' },
+        { pattern: 'Waiting for review', replacement: '等待审查' },
+        { pattern: 'Approved by', replacement: '批准者' },
+        { pattern: 'Changes requested by', replacement: '请求更改者' },
+        { pattern: 'Reviewed by', replacement: '审查者' },
+        { pattern: 'Commented by', replacement: '评论者' },
+        { pattern: 'Merged by', replacement: '合并者' },
+
+        // ================================================================
+        //  正则翻译规则（从 maboloshi 词库精选）
+        // ================================================================
+
+        // 议题/PR 列表计数
+        { pattern: /^([\d,]+)\s+Open$/, replacement: '$1 打开' },
+        { pattern: /^([\d,]+)\s+Closed$/, replacement: '$1 已关闭' },
+        { pattern: /^([\d,]+)\s+total$/, replacement: '共 $1' },
+        // PR/Issue 详情页计数
+        { pattern: /^(\d+)\s+Comments?$/, replacement: '$1 条评论' },
+        { pattern: /^(\d+)\s+commits?$/, replacement: '$1 个提交' },
+        { pattern: /^(\d+)\s+contributors?$/, replacement: '$1 位贡献者' },
+        { pattern: /^(\d+)\s+Reviewers?$/, replacement: '$1 位审查者' },
+        // 文件浏览页
+        { pattern: /^(\d+)\s+lines?\s+\((\d+)\s+loc\)/, replacement: '$1 行（$2 非空行）' },
+        // 仓库页
+        { pattern: /^(\d+)\s+Stars?$/, replacement: '$1 个星标' },
+        { pattern: /^(\d+)\s+Forks?$/, replacement: '$1 个复刻' },
+        { pattern: /^(\d+)\s+Watching$/, replacement: '$1 个关注' },
+        { pattern: /^(\d+)\s+Issues?$/, replacement: '$1 个议题' },
+        // 时间日期
+        { pattern: /^on\s+(\w+\s+\d+,\s+\d+)$/, replacement: '于 $1' },
+        // PR 合并信息
+        { pattern: /^Merged\s+#(\d+)\s+into\s+(.+)\s+from\s+(.+)$/, replacement: '合并 #$1 从 $3 到 $2' },
+        // Review 状态
+        { pattern: /^(\d+)\s+of\s+(\d+)\s+checks?\s+passed$/, replacement: '$2 个检查中 $1 个通过' },
+        // Issue 关联
+        { pattern: /^(\d+)\s+linked\s+issues?$/, replacement: '关联 $1 个议题' },
+        { pattern: /^(\d+)\s+linked\s+pull\s+requests?$/, replacement: '关联 $1 个拉取请求' },
+        // 任务列表
+        { pattern: /^(\d+)\s+of\s+(\d+)\s+tasks?$/, replacement: '$1 / $2 个任务' },
+        { pattern: /^(\d+)\s+tasks?\s+done$/, replacement: '$1 个任务完成' },
+        // 贡献者活动
+        { pattern: /^Committed to this repository in the past (\w+)$/, replacement: '最近 $1 内提交过此仓库' },
+        { pattern: /^Opened this pull request \(their first ever\)$/, replacement: '打开了此拉取请求（首次）' },
+
+        // ================================================================
+        //  Markdown 工具栏（编辑器内的工具提示）
+        // ================================================================
+
+        { pattern: 'Bold', replacement: '粗体' },
+        { pattern: 'Italic', replacement: '斜体' },
+        { pattern: 'Quote', replacement: '摘引' },
+        { pattern: 'Code block', replacement: '代码块' },
+        { pattern: 'Link', replacement: '链接' },
+        { pattern: 'Image', replacement: '图片' },
+        { pattern: 'Table', replacement: '表格' },
+        { pattern: 'Details', replacement: '详细信息' },
+        { pattern: 'Task list', replacement: '任务列表' },
+        { pattern: 'Heading', replacement: '标题' },
+        { pattern: 'Numbered list', replacement: '有序列表' },
+        { pattern: 'Unordered list', replacement: '无序列表' },
+        { pattern: 'Attach files', replacement: '附件' },
+        { pattern: 'Mention', replacement: '提及' },
+        { pattern: 'Reference', replacement: '引用' },
+        { pattern: 'Saved replies', replacement: '快速回复' },
+        { pattern: 'Slash commands', replacement: '斜杠命令' },
+        { pattern: 'Alerts', replacement: '警示' },
+        { pattern: 'Markdown is supported', replacement: '支持 Markdown 语法' },
+        { pattern: 'Styling with Markdown is supported.', replacement: '支持 Markdown 语法。' },
+        { pattern: 'Add your comment here...', replacement: '在此添加您的评论…' },
+        { pattern: 'Add your answer here...', replacement: '在此添加您的答复…' },
+        { pattern: 'Add your description here…', replacement: '在此输入描述…' },
+        { pattern: 'Type your description here…', replacement: '在此输入描述…' },
+        { pattern: 'Text field is empty', replacement: '文本框为空' },
+        { pattern: 'Nothing to preview', replacement: '没有什么可预览' },
+        { pattern: 'Paste, drop, or click to add files', replacement: '粘贴、拖放或点击添加文件' },
+        { pattern: 'Write with Copilot', replacement: '使用 Copilot 撰写' },
+        { pattern: 'Attach files by', replacement: '通过' },
+        { pattern: 'dragging & dropping,', replacement: '拖放，' },
+        { pattern: 'selecting or pasting them.', replacement: '选择或粘贴来附加文件。' },
+
+        // ================================================================
+        //  仓库页通用（Actions / Insights / Wiki / Releases 等 tab）
+        // ================================================================
+
+        { pattern: 'Workflows', replacement: '工作流' },
+        { pattern: 'Workflow runs', replacement: '工作流运行' },
+        { pattern: 'Run workflow', replacement: '运行工作流' },
+        { pattern: 'Enable workflows', replacement: '启用工作流' },
+        { pattern: 'Recent runs', replacement: '最近运行' },
+        { pattern: 'All workflows', replacement: '所有工作流' },
+        { pattern: 'On:', replacement: '触发条件：' },
+        { pattern: 'Push', replacement: '推送' },
+        { pattern: 'Pull request', replacement: '拉取请求' },
+        { pattern: 'Schedule', replacement: '定时' },
+        { pattern: 'This workflow has a workflow_dispatch event trigger.', replacement: '此工作流支持手动触发。' },
+        { pattern: 'Run name', replacement: '运行名称' },
+        { pattern: 'Head branch', replacement: '头分支' },
+        { pattern: 'Event', replacement: '事件' },
+        { pattern: 'Workflow', replacement: '工作流' },
+        { pattern: 'Run number', replacement: '运行编号' },
+        { pattern: 'Started', replacement: '开始于' },
+        { pattern: 'Duration', replacement: '持续时间' },
+        { pattern: 'Completed', replacement: '已完成' },
+        { pattern: 'Failed', replacement: '失败' },
+        { pattern: 'Cancelled', replacement: '已取消' },
+        { pattern: 'Skipped', replacement: '已跳过' },
+        { pattern: 'In progress', replacement: '进行中' },
+        { pattern: 'Queued', replacement: '排队中' },
+        { pattern: 'Running', replacement: '运行中' },
+        { pattern: 'Waiting', replacement: '等待中' },
+        { pattern: 'Approve', replacement: '批准' },
+        { pattern: 'Reject', replacement: '拒绝' },
+        { pattern: 'Re-run all jobs', replacement: '重新运行所有任务' },
+        { pattern: 'Re-run failed jobs', replacement: '重新运行失败的任务' },
+        { pattern: 'Cancel workflow run', replacement: '取消工作流运行' },
+        { pattern: 'Enable workflow', replacement: '启用工作流' },
+        { pattern: 'Delete workflow run logs', replacement: '删除工作流运行日志' },
+        { pattern: 'Delete all workflow runs', replacement: '删除所有工作流运行' },
+        { pattern: 'Are you sure you want to delete the logs for this workflow run?', replacement: '您确定要删除此工作流运行的日志吗？' },
+        { pattern: 'Are you sure you want to delete all workflow runs?', replacement: '您确定要删除所有工作流运行吗？' },
+        { pattern: 'Use workflow artifacts', replacement: '使用工作流产物' },
+        { pattern: 'Artifacts', replacement: '产物' },
+        { pattern: 'No workflow run artifacts yet', replacement: '暂无工作流运行产物' },
+        { pattern: 'Overview', replacement: '概况' },
+        { pattern: 'Code frequency', replacement: '代码频率' },
+        { pattern: 'Commit activity', replacement: '提交活动' },
+        { pattern: 'Punch card', replacement: '打卡卡' },
+        { pattern: 'Network', replacement: '网络' },
+        { pattern: 'Members', replacement: '成员' },
+        { pattern: 'Forks', replacement: '复刻' },
+        { pattern: 'Languages', replacement: '语言' },
+        { pattern: 'Latest release', replacement: '最新发行版' },
+        { pattern: 'Releases', replacement: '发行版' },
+        { pattern: 'Tags', replacement: '标签' },
+        { pattern: 'Draft a new release', replacement: '草拟新发行版' },
+        { pattern: 'Releases · ', replacement: '发行版 · ' },
+        { pattern: 'Latest', replacement: '最新' },
+        { pattern: 'Upcoming', replacement: '即将发布' },
+        { pattern: 'No releases published', replacement: '暂无发行版' },
+        { pattern: 'Compare', replacement: '比较' },
+        { pattern: 'Wiki', replacement: 'Wiki' },
+        { pattern: 'Pages', replacement: 'GitHub Pages' },
+        { pattern: 'Security', replacement: '安全' },
+        { pattern: 'Environments', replacement: '环境' },
+        { pattern: 'Deployments', replacement: '部署' },
+        { pattern: 'Packages', replacement: '软件包' },
+        { pattern: 'Activity', replacement: '动态' },
+        { pattern: 'Pulse', replacement: '脉搏' },
+        { pattern: 'Community', replacement: '社区' },
+        { pattern: 'Traffic', replacement: '流量' },
+        { pattern: 'Clones', replacement: '克隆' },
+        { pattern: 'Popular content', replacement: '热门内容' },
+        { pattern: 'Referers', replacement: '来源' },
+        { pattern: 'Views', replacement: '访问' },
+        { pattern: 'Top paths', replacement: '热门路径' },
+
+        // ================================================================
+        //  仓库设置页扩展
+        // ================================================================
+
+        { pattern: 'Secrets', replacement: '密钥' },
+        { pattern: 'Variables', replacement: '变量' },
+        { pattern: 'Environments', replacement: '环境' },
+        { pattern: 'Webhooks', replacement: '网络钩子' },
+        { pattern: 'Add webhook', replacement: '添加网络钩子' },
+        { pattern: 'GitHub Apps', replacement: 'GitHub 应用' },
+        { pattern: 'Hooks', replacement: '钩子' },
+        { pattern: 'Danger Zone', replacement: '危险区域' },
+
+        // ================================================================
+        //  用户菜单 / 个人资料
+        // ================================================================
+
+        { pattern: 'Your profile', replacement: '您的个人资料' },
+        { pattern: 'Your repositories', replacement: '您的仓库' },
+        { pattern: 'Your projects', replacement: '您的项目' },
+        { pattern: 'Your stars', replacement: '您的星标' },
+        { pattern: 'Your gists', replacement: '您的代码片段' },
+        { pattern: 'Your organizations', replacement: '您的组织' },
+        { pattern: 'Your enterprises', replacement: '您的企业' },
+        { pattern: 'Your sponsorship', replacement: '您的赞助' },
+        { pattern: 'Feature preview', replacement: '功能预览' },
+        { pattern: 'Settings', replacement: '设置' },
+        { pattern: 'GitHub Docs', replacement: 'GitHub 文档' },
+        { pattern: 'GitHub Support', replacement: 'GitHub 支持' },
+        { pattern: 'GitHub Community', replacement: 'GitHub 社区' },
+        { pattern: 'Status', replacement: '状态' },
+        { pattern: 'Log out', replacement: '退出登录' },
+        { pattern: 'Sign out...', replacement: '登出…' },
+        { pattern: 'Switch account', replacement: '切换账户' },
+        { pattern: 'Your billing settings', replacement: '您的账单设置' },
+        { pattern: 'Pinned', replacement: '置顶' },
+        { pattern: 'Contributions', replacement: '贡献' },
+        { pattern: 'Contribution activity', replacement: '贡献动态' },
+        { pattern: 'Achievements', replacement: '成就' },
+        { pattern: 'Organizations', replacement: '组织' },
+        { pattern: 'Sponsors', replacement: '赞助者' },
+        { pattern: 'Starred', replacement: '已加星标' },
+
+        // ================================================================
+        //  搜索弹窗 / 命令面板
+        // ================================================================
+
+        { pattern: 'Command palette', replacement: '命令面板' },
+        { pattern: 'All of GitHub', replacement: '整个 GitHub' },
+        { pattern: 'Autocomplete', replacement: '自动完成' },
+        { pattern: 'Search in this directory', replacement: '在文件夹中搜索' },
+        { pattern: 'Search in this organization', replacement: '在该组织中搜索' },
+        { pattern: 'Jump to', replacement: '跳转到' },
+        { pattern: 'Ask Copilot', replacement: '询问 Copilot' },
+        { pattern: 'Saved queries', replacement: '已保存的搜索' },
+        { pattern: 'Search results', replacement: '搜索结果' },
+        { pattern: 'Search or jump to a repository', replacement: '搜索或跳转到仓库' },
+        { pattern: 'Search or jump to a user, organization, or repository', replacement: '搜索或跳转到用户、组织或仓库' },
+        { pattern: 'Search files', replacement: '搜索文件' },
+        { pattern: 'Search issues and pull requests', replacement: '搜索议题和拉取请求' },
+        { pattern: 'Search projects', replacement: '搜索项目' },
+        { pattern: 'Top result', replacement: '最佳结果' },
+        { pattern: 'Owners', replacement: '所有者' },
+        { pattern: 'Run a command', replacement: '运行命令' },
+        { pattern: 'Run command', replacement: '运行命令' },
+        { pattern: 'Commands', replacement: '命令' },
+        { pattern: 'Clear Command Palette', replacement: '清除命令面板' },
+        { pattern: 'Filter to pull requests', replacement: '筛选拉取请求' },
+        { pattern: 'Filter to issues', replacement: '筛选议题' },
+        { pattern: 'Filter to discussions', replacement: '筛选讨论' },
+        { pattern: 'Filter to projects', replacement: '筛选项目' },
+
+        // ================================================================
+        //  页面标题翻译（document.title）
+        // ================================================================
+
+        {
+            selector: 'title',
+            replace(el) {
+                const t = el.textContent;
+                const rules = [
+                    [/^Issues\b/, '议题'],
+                    [/^Pull requests?\b/, '拉取请求'],
+                    [/^Discussions?\b/, '讨论'],
+                    [/^Actions\b/, '操作'],
+                    [/^Settings\b/, '设置'],
+                    [/^Security\b/, '安全'],
+                    [/^Insights\b/, '洞察'],
+                    [/^Wikis?\b/, 'Wiki'],
+                    [/^Releases\b/, '发行版'],
+                    [/^Tags\b/, '标签'],
+                    [/^Branches\b/, '分支'],
+                    [/^Network\b/, '网络'],
+                    [/^Pulse\b/, '脉搏'],
+                    [/^Community\b/, '社区'],
+                    [/^Traffic\b/, '流量'],
+                    [/^Forks\b/, '复刻'],
+                    [/^Stargazers?\b/, '星标者'],
+                    [/^Watchers?\b/, '关注者'],
+                    [/^Activity\b/, '动态'],
+                    [/^Milestones?\b/, '里程碑'],
+                    [/^Labels\b/, '标签'],
+                ];
+                for (const [pat, rep] of rules) {
+                    if (pat.test(t)) { el.textContent = t.replace(pat, rep); return true; }
+                }
+                return false;
+            },
+        },
     ];
 
     // ========== 工具函数 ==========
@@ -716,7 +1223,9 @@
         const isReg = entry.pattern instanceof RegExp;
 
         if (isReg ? entry.pattern.test(raw) : raw === entry.pattern) {
-            safeSetTextContent(el, entry.replacement);
+            // 正则模式：用 replace() 插值捕获组（$1, $2...），否则直接使用译文
+            const text = isReg ? raw.replace(entry.pattern, entry.replacement) : entry.replacement;
+            safeSetTextContent(el, text);
             markTranslated(el);
             return true;
         }
@@ -836,20 +1345,41 @@
 
     // ========== 油猴菜单开关 ==========
 
-    let enabled = GM_getValue('enabled', true);
+    // 读取开关状态（优先 GM API，回退 localStorage）
+    function loadEnabled() {
+        try {
+            const v = GM_getValue('enabled', true);
+            // 类型强制：GM_getValue 在部分环境下可能返回字符串 "false"（truthy）
+            return v !== false && v !== 'false';
+        } catch (e) { /* GM API 不可用时回退 localStorage */ }
+        try { return localStorage.getItem('gh-zh-enabled') !== 'false'; } catch (e) {}
+        return true;
+    }
+
+    // 保存开关状态（GM API + localStorage 双写，确保持久化）
+    function saveEnabled(val) {
+        try { GM_setValue('enabled', val); } catch (e) { /* 静默失败 */ }
+        try { localStorage.setItem('gh-zh-enabled', String(val)); } catch (e) {}
+    }
+
+    let enabled = loadEnabled();
 
     function registerMenu() {
-        if (typeof GM_registerMenuCommand !== 'function') return;
-        GM_registerMenuCommand(
-            enabled ? '✅ 汉化已开启（点击关闭）' : '❌ 汉化已关闭（点击开启）',
-            () => {
-                enabled = !enabled;
-                GM_setValue('enabled', enabled);
-                console.log(`[GitHub 汉化] 翻译已${enabled ? '开启' : '关闭'}`);
-                // 立即生效：重新加载页面
-                location.reload();
-            },
-        );
+        try {
+            if (typeof GM_registerMenuCommand !== 'function') return;
+            GM_registerMenuCommand(
+                enabled ? '✅ 汉化已开启（点击关闭）' : '❌ 汉化已关闭（点击开启）',
+                () => {
+                    enabled = !enabled;
+                    saveEnabled(enabled);
+                    console.log(`[GitHub 汉化] 翻译已${enabled ? '开启' : '关闭'}`);
+                    // 立即生效：重新加载页面
+                    location.reload();
+                },
+            );
+        } catch (e) {
+            console.warn('[GitHub 汉化] 菜单注册失败:', e);
+        }
     }
 
     // ========== DOM 变化监听 ==========
@@ -887,7 +1417,7 @@
 ` +
             `               \\|___|/                               \\|__|\\|_________|
 ` +
-            `%c  GitHub 汉化插件 v1.2.0  |  %d 条翻译规则已加载  |  汉化${enabled ? '已开启' : '已关闭'}`,
+            `%c  GitHub 汉化插件 v2.0.0  |  %d 条翻译规则已加载  |  汉化${enabled ? '已开启' : '已关闭'}`,
             'color: #00ff41',
             'color: #1f883d; font-weight: bold',
             dict.length
